@@ -1,88 +1,47 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import React from "react";
+import Head from "next/head";
+import dynamic from "next/dynamic";
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+import Masonry from "react-masonry-component";
 
-    <Nav />
+import CardComponent from "../components/Card";
+import Sidebar from "../components/Sidebar";
+import Layout from "../components/Layout";
 
-    <div className="hero">
-      <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+import { unsplashInstance } from "../config";
 
+const masonry = dynamic(() => import("react-masonry-component"));
+
+const Home = ({ photos }) => {
+  return (
+    <Layout>
+      <Head>
+        <title>Splash Photos</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
+        <Sidebar customClassName="col-md-3 d-none d-md-block" />
+        <masonry className="hero w-100 col-md-9 col-sm-12 p-0">
+          {photos.map(photo => (
+            <CardComponent photo={photo} />
+          ))}
+        </masonry>
       </div>
-    </div>
+      {/* styles */}
+      <style jsx>{`
+        .hero {
+          flex: 2;
+        }
+      `}</style>
+    </Layout>
+  );
+};
 
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
+Home.getInitialProps = async () => {
+  const response = await unsplashInstance.search.photos("dogs", 1, 10);
+  return {
+    photos: response.data.results
+  };
+};
 
-export default Home
+export default Home;
