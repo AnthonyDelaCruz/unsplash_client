@@ -7,8 +7,7 @@ const axiosInstance = axios.create({});
 // must instantiate fetch globally for unsplash-js to work
 global.fetch = axiosInstance;
 
-const unsplashAccessKey = publicRuntimeConfig.UNSPLASH_ACCESS_KEY;
-const unsplashSecretKey = publicRuntimeConfig.UNSPLASH_SECRET_KEY;
+const unsplashAccessKey = env.UNSPLASH_ACCESS_KEY;
 
 export const unsplashInstance = new Unsplash({
   accessKey: unsplashAccessKey
