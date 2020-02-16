@@ -9,7 +9,9 @@ import Footer from "../components/Footer";
 
 import { unsplashInstance } from "../config";
 
-const MasonryComponent = dynamic(() => import("react-masonry-component"));
+const MasonryComponent = dynamic(() => import("react-masonry-component"), {
+  ssr: false
+});
 
 const Home = ({ photos }) => {
   return (
@@ -36,9 +38,9 @@ const Home = ({ photos }) => {
 };
 
 Home.getInitialProps = async () => {
-  const response = await unsplashInstance.search.photos("dogs", 1, 10);
+  const response = await unsplashInstance.photos.listPhotos(1, 10, "latest");
   return {
-    photos: response.data.results
+    photos: response.data
   };
 };
 

@@ -1,19 +1,22 @@
 import { Navbar, NavbarBrand, NavbarText } from "reactstrap";
 
 const Nav = () => (
-  <div className="navbarContainer">
-    <Navbar className="w-100">
-      <NavbarBrand>Capture!</NavbarBrand>
+  <div className="navbarContainer shadow">
+    <Navbar className="navbarComponent px-4 py-0 h-100">
+      <NavbarBrand>
+        <h2 className="m-0">SPLASHIMG.</h2>
+      </NavbarBrand>
       <NavbarText>Nav text</NavbarText>
     </Navbar>
     <style jsx>
       {`
         .navbarContainer {
+          color: #ffffff;
           height: 60px;
           position: sticky;
           top: 0;
           z-index: 1;
-          background: #ffffff;
+          background: #262626;
         }
       `}
     </style>
