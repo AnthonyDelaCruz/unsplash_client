@@ -1,17 +1,10 @@
-import React from "react";
 import Head from "next/head";
-import dynamic from "next/dynamic";
 
 import CardComponent from "../components/Card";
-import Sidebar from "../components/Sidebar";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 
 import { unsplashInstance } from "../config";
-
-const MasonryComponent = dynamic(() => import("react-masonry-component"), {
-  ssr: false
-});
 
 const Home = ({ photos }) => {
   return (
@@ -20,19 +13,23 @@ const Home = ({ photos }) => {
         <title>Splash Photos</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MasonryComponent>
+      <div className="p-2 card-columns">
         {photos.map((photo, i) => (
-          <CardComponent photo={photo} key={i} />
+          <CardComponent
+            customClassName="card-container mb-2"
+            photo={photo}
+            key={i}
+          />
         ))}
-      </MasonryComponent>
+      </div>
       <Footer />
-      {/* styles */}
-      <style jsx>{`
-        .hero {
-          flex: 2;
-          background: grey;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .card-columns {
+            column-gap: 0.5rem;
+          }
+        `}
+      </style>
     </Layout>
   );
 };
