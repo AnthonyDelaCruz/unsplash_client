@@ -4,7 +4,7 @@ const Nav = () => (
   <div className="navbarContainer shadow">
     <Navbar className="navbarComponent px-4 py-0 h-100">
       <NavbarBrand>
-        <h2 className="m-0">SPLASHHHH!</h2>
+        <h2 className="m-0">SPASHimg</h2>
       </NavbarBrand>
       <NavbarText>Nav text</NavbarText>
     </Navbar>
