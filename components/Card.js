@@ -8,8 +8,13 @@ export default function CardComponent({ photo, customClassName }) {
     <Card className={customClassName}>
       <div className="card-image">
         <Img
+          style={{
+            backgroundColor: "grey",
+            width: "100%",
+            height: "auto"
+          }}
           className="img img-fluid"
-          src={photo.urls.regular}
+          src={photo.urls.small}
           alt={photo.alt_description}
         />
         <div className="card-info p-2 d-flex flex-column justify-content-between">
