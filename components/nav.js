@@ -6,7 +6,7 @@ const Nav = () => (
       <NavbarBrand>
         <h2 className="m-0">SPASHimg</h2>
       </NavbarBrand>
-      <NavbarText>Nav text</NavbarText>
+      <NavbarText>Nav Text</NavbarText>
     </Navbar>
     <style jsx>
       {`
