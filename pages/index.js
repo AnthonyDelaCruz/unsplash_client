@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <Layout>
       <Head>
-        <title>Splash Photos.</title>
+        <title>Splash Photos</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-2 card-columns">
