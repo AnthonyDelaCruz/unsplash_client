@@ -1,6 +1,9 @@
 import axios from "axios";
+import getConfig from "next/config";
 
-const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
+const { publicRuntimeConfig } = getConfig();
+
+const unsplashAccessKey = publicRuntimeConfig.UNSPLASH_ACCESS_KEY;
 
 export const axiosInstance = axios.create({
   baseURL: "https://api.unsplash.com/",
