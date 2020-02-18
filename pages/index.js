@@ -4,7 +4,7 @@ import CardComponent from "../components/Card";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 
-import { unsplashInstance } from "../config";
+import { axiosInstance } from "../config";
 
 const Home = ({ photos }) => {
   return (
@@ -35,7 +35,10 @@ const Home = ({ photos }) => {
 };
 
 Home.getInitialProps = async () => {
-  const response = await unsplashInstance.photos.listPhotos(1, 10, "latest");
+  const response = await axiosInstance.get("/photos", {
+    params: { page: 1, per_page: 6 }
+  });
+
   return {
     photos: response.data
   };
