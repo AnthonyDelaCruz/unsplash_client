@@ -6,7 +6,17 @@ import Footer from "../components/Footer";
 
 import { axiosInstance } from "../config";
 
-const Home = ({ photos }) => {
+const Home = () => {
+  const [photos, setPhotos] = React.useState();
+
+  React.useEffect(() => {
+    axiosInstance
+      .get("/photos", {
+        params: { page: 1, per_page: 6 }
+      })
+      .then(response => setPhotos(response.data));
+  }, []);
+
   return (
     <Layout>
       <Head>
@@ -14,13 +24,14 @@ const Home = ({ photos }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-2 card-columns">
-        {photos.map((photo, i) => (
-          <CardComponent
-            customClassName="card-container mb-2"
-            photo={photo}
-            key={i}
-          />
-        ))}
+        {photos &&
+          photos.map((photo, i) => (
+            <CardComponent
+              customClassName="card-container mb-2"
+              photo={photo}
+              key={i}
+            />
+          ))}
       </div>
       <Footer />
       <style jsx>
@@ -32,16 +43,6 @@ const Home = ({ photos }) => {
       </style>
     </Layout>
   );
-};
-
-Home.getInitialProps = async () => {
-  const response = await axiosInstance.get("/photos", {
-    params: { page: 1, per_page: 6 }
-  });
-
-  return {
-    photos: response.data
-  };
 };
 
 export default Home;
