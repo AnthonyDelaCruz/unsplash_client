@@ -1,7 +1,5 @@
-require("dotenv").config();
-
 module.exports = {
   env: {
-    ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY
+    ACCESS_KEY: process.env.ACCESS_KEY
   }
 };

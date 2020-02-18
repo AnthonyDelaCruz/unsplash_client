@@ -7,7 +7,11 @@ export default function CardComponent({ photo, customClassName }) {
   return (
     <Card className={customClassName}>
       <div className="card-image">
-        <CardImg src={photo.urls.regular} alt={photo.alt_description} />
+        <Img
+          className="img img-fluid"
+          src={photo.urls.regular}
+          alt={photo.alt_description}
+        />
         <div className="card-info p-2 d-flex flex-column justify-content-between">
           <div className="d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center">

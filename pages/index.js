@@ -36,7 +36,7 @@ const Home = ({ photos }) => {
 
 Home.getInitialProps = async () => {
   const response = await axiosInstance.get("/photos", {
-    params: { page: 1, per_page: 6 }
+    params: { page: 1, per_page: 10 }
   });
 
   return {
