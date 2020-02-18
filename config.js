@@ -1,4 +1,3 @@
-import Unsplash from "unsplash-js";
 import axios from "axios";
 
 const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
