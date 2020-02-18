@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
+const unsplashAccessKey = process.env.ACCESS_KEY;
 
 export const axiosInstance = axios.create({
   baseURL: "https://api.unsplash.com/",
