@@ -37,6 +37,7 @@ export default function Sidebar({ customClassName }) {
         <p className="follow text-center">Follow me here!</p>
         <div className="d-flex  mx-md-5 justify-content-around">
           <a
+            rel="noreferrer"
             className="social-links"
             href="https://www.facebook.com/tonydc23"
             target="_blank"
@@ -44,6 +45,7 @@ export default function Sidebar({ customClassName }) {
             <FaFacebook size="30px" />
           </a>
           <a
+            rel="noreferrer"
             className="social-links"
             href="https://github.com/AnthonyDelaCruz"
             target="_blank"
@@ -51,6 +53,7 @@ export default function Sidebar({ customClassName }) {
             <FaGithub size="30px" />
           </a>
           <a
+            rel="noreferrer"
             className="social-links"
             href="https://www.linkedin.com/in/anthony-delacruz-956a97167/"
             target="_blank"
