@@ -7,7 +7,7 @@ export default function CardComponent({ photo, customClassName }) {
   return (
     <Card className={customClassName}>
       <div className="card-image">
-        <Img
+        <img
           style={{
             backgroundColor: "#EAEAEA",
             height: "400px"
@@ -15,6 +15,7 @@ export default function CardComponent({ photo, customClassName }) {
           className="h-auto w-100 img img-fluid"
           src={photo.urls.small}
           alt={photo.alt_description}
+          debounce={1000}
         />
         <div className="card-info p-2 d-flex flex-column justify-content-between">
           <div className="d-flex align-items-center justify-content-between">
@@ -23,6 +24,7 @@ export default function CardComponent({ photo, customClassName }) {
                 className="avatar mr-2"
                 src={photo.user.profile_image.small}
                 alt={photo.user.username}
+                debounce={1000}
               />
               <p className="m-0">{photo.user.name}</p>
             </div>
@@ -50,6 +52,32 @@ export default function CardComponent({ photo, customClassName }) {
         }
         .img {
           backgroundcolor: #f1f1f1;
+        }
+        .card-image:hover .card-info {
+          opacity: 1;
+        }
+
+        .card-info {
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          background: rgba(0, 0, 0, 0.5);
+          -moz-transition: all 0.5s;
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          top: 0;
+          left: 0;
+          position: absolute;
+          color: #ffffff;
+        }
+
+        .gallery-btn {
+          color: #ffffff !important;
+          border: 1px solid #ffffff !important;
+        }
+
+        .gallery-btn:hover {
+          background: transparent;
         }
       `}</style>
     </Card>

@@ -36,13 +36,22 @@ export default function Sidebar({ customClassName }) {
       <div>
         <p className="follow text-center">Follow me here!</p>
         <div className="d-flex  mx-md-5 justify-content-around">
-          <a href="https://www.facebook.com/tonydc23" target="_blank">
+          <a
+            className="social-links"
+            href="https://www.facebook.com/tonydc23"
+            target="_blank"
+          >
             <FaFacebook size="30px" />
           </a>
-          <a href="https://github.com/AnthonyDelaCruz" target="_blank">
+          <a
+            className="social-links"
+            href="https://github.com/AnthonyDelaCruz"
+            target="_blank"
+          >
             <FaGithub size="30px" />
           </a>
           <a
+            className="social-links"
             href="https://www.linkedin.com/in/anthony-delacruz-956a97167/"
             target="_blank"
           >
@@ -63,7 +72,7 @@ export default function Sidebar({ customClassName }) {
           font-size: 1.2rem;
           font-weight: bold;
         }
-        a {
+        .social-links {
           color: black;
         }
       `}</style>
