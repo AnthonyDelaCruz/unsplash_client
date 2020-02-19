@@ -37,20 +37,18 @@ const Home = ({ photos }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-2 card-columns">
-        {photosArr && (
-          <InfiniteScroll
-            dataLength={photosArr.length}
-            next={fetchData}
-            hasMore={hasMore}
-            scrollThreshold={1}
-            loadingSkeleton={<CardSkeleton />}
-          >
-            {photosArr &&
-              photosArr.map((photo, i) => (
-                <CardComponent customClassName="mb-2" photo={photo} key={i} />
-              ))}
-          </InfiniteScroll>
-        )}
+        <InfiniteScroll
+          dataLength={photosArr.length}
+          next={fetchData}
+          hasMore={hasMore}
+          scrollThreshold={1}
+          loadingSkeleton={<CardSkeleton />}
+        >
+          {photosArr &&
+            photosArr.map((photo, i) => (
+              <CardComponent customClassName="mb-2" photo={photo} key={i} />
+            ))}
+        </InfiniteScroll>
       </div>
       <Footer />
       <style jsx>
