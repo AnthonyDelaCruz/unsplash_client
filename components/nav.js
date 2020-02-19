@@ -2,7 +2,7 @@ import { Navbar, NavbarBrand, NavbarText } from "reactstrap";
 
 const Nav = () => (
   <div className="navbarContainer shadow">
-    <Navbar className="navbarComponent px-4 py-0 h-100">
+    <Navbar className="px-4 py-0 h-100">
       <NavbarBrand>
         <h2 className="m-0">SPLASHImg.</h2>
       </NavbarBrand>

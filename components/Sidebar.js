@@ -19,7 +19,7 @@ export default function Sidebar({ customClassName }) {
   return (
     <div className={`sidebar ${customClassName}`}>
       <IconContext.Provider value={{ className: "global-class-name" }}>
-        <div className="header-container d-flex flex-column align-items-center">
+        <div className="d-flex flex-column align-items-center">
           <FaCameraRetro size="100px" />
           <p className="font-weight-bold my-3">from Unsplash API</p>
         </div>
@@ -55,11 +55,9 @@ export default function Sidebar({ customClassName }) {
           height: calc(100vh - 60px);
           position: sticky;
           top: 60px;
-          background: #dd5e89; 
+          background: #dd5e89;
           background: -webkit-linear-gradient(to bottom, #f7bb97, #dd5e89);
           background: linear-gradient(to bottom, #f7bb97, #dd5e89);
-        }
-        .header-container {
         }
         .follow {
           font-size: 1.2rem;
