@@ -8,7 +8,10 @@ export default function CardComponent({ photo, customClassName }) {
     <Card className={customClassName}>
       <div className="card-image">
         <Img
-          palceholder={<CardSkeleton />}
+          style={{
+            backgroundColor: "#EAEAEA",
+            height: "400px"
+          }}
           className="h-auto w-100 img img-fluid"
           src={photo.urls.small}
           alt={photo.alt_description}
