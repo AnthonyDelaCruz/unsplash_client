@@ -38,7 +38,7 @@ const Home = ({ photos }) => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Splash Photos." />
         <meta
-          propery="og:description"
+          property="og:description"
           content="High quality images from the famous API Unsplash. View images, users and other information about them."
         />
         <meta property="og:image" content={`${process.env.DOMAIN}/next.jpg`} />
