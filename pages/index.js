@@ -34,19 +34,20 @@ const Home = ({ photos }) => {
     <Layout>
       <Head>
         <title>Splash Photos.</title>
-        <meta
-          name="description"
-          content="High quality images from the famous API Unsplash. View images, users and other information about them."
-        />
-        <link rel="canonical" href={`${process.env.DOMAIN}`} />
+        <meta property="og:url" content={`${process.env.DOMAIN}`} />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Splash Photos." />
         <meta
           propery="og:description"
           content="High quality images from the famous API Unsplash. View images, users and other information about them."
         />
         <meta property="og:image" content={`${process.env.DOMAIN}/next.jpg`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${process.env.DOMAIN}`} />
+        <meta property="fb:app_id" content={`${process.env.FACEBOOK_APP_ID}`} />
+        <meta
+          name="description"
+          content="High quality images from the famous API Unsplash. View images, users and other information about them."
+        />
+        <link rel="canonical" href={`${process.env.DOMAIN}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-2 card-columns">

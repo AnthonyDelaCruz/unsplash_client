@@ -1,7 +1,8 @@
 {
   "build": {
     "env": {
-      "ACCESS_KEY": "@unsplashaccesskey"
+      "ACCESS_KEY": "@unsplashaccesskey",
+      "FACEBOOK_APP_ID": "@splashclientfbappid"
     }
   }
 }
