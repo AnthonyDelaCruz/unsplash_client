@@ -7,7 +7,7 @@ export default function CardComponent({ photo, customClassName }) {
   return (
     <Card className={customClassName}>
       <div className="card-image">
-        <img
+        <Img
           style={{
             backgroundColor: "#EAEAEA",
             height: "400px"
@@ -33,7 +33,7 @@ export default function CardComponent({ photo, customClassName }) {
             </div>
           </div>
           <div className="actions">
-            <Button className="gallery-btn" outline>
+            <Button outline className="gallery-btn">
               View in Gallery
             </Button>
           </div>
@@ -51,12 +51,11 @@ export default function CardComponent({ photo, customClassName }) {
           margin-top: 0.2rem;
         }
         .img {
-          backgroundcolor: #f1f1f1;
+          background-color: #f1f1f1;
         }
         .card-image:hover .card-info {
           opacity: 1;
         }
-
         .card-info {
           height: 100%;
           width: 100%;
@@ -69,15 +68,6 @@ export default function CardComponent({ photo, customClassName }) {
           left: 0;
           position: absolute;
           color: #ffffff;
-        }
-
-        .gallery-btn {
-          color: #ffffff !important;
-          border: 1px solid #ffffff !important;
-        }
-
-        .gallery-btn:hover {
-          background: transparent;
         }
       `}</style>
     </Card>

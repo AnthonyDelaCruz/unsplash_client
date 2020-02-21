@@ -8,6 +8,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* this will import the font asynchronously so it wouldnt be render blocking */}
           <style>
             @import
             "//fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
