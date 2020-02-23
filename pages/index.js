@@ -58,7 +58,10 @@ const Home = ({ photos }) => {
           property="og:description"
           content="High quality images from the famous API Unsplash. View images, users and other information about them."
         />
-        <meta property="og:image" content={`${process.env.DOMAIN}/next.jpg`} />
+        <meta
+          property="og:image"
+          content={`${process.env.DOMAIN}/ApplicationSnapShot.png`}
+        />
         <meta property="fb:app_id" content={`${process.env.FACEBOOK_APP_ID}`} />
         <meta
           name="description"
