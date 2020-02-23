@@ -3,7 +3,11 @@ import Img from "react-cool-img";
 
 import { Card, Button } from "reactstrap";
 
-export default function CardComponent({ photo, customClassName }) {
+export default function CardComponent({
+  toggleLightBox,
+  photo,
+  customClassName
+}) {
   return (
     <Card className={customClassName}>
       <div className="card-image">
@@ -33,7 +37,7 @@ export default function CardComponent({ photo, customClassName }) {
             </div>
           </div>
           <div className="actions">
-            <Button outline className="gallery-btn">
+            <Button onClick={toggleLightBox} outline className="gallery-btn">
               View in Gallery
             </Button>
           </div>
@@ -82,29 +86,6 @@ export const CardSkeleton = () => {
         backgroundColor: "#EAEAEA",
         height: "400px"
       }}
-    >
-      <div className="d-flex justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
-          <div
-            className="mr-2"
-            style={{ background: "#CDCDCD", width: "35px", height: "35px" }}
-          ></div>
-          <div
-            style={{ background: "#CDCDCD", width: "150px", height: "25px" }}
-          ></div>
-        </div>
-        <div
-          style={{ background: "#CDCDCD", width: "25px", height: "25px" }}
-        ></div>
-      </div>
-      <div
-        style={{
-          background: "#CDCDCD",
-          width: "150px",
-          height: "45px",
-          borderRadius: "5px"
-        }}
-      ></div>
-    </div>
+    ></div>
   );
 };

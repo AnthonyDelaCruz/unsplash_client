@@ -1,4 +1,8 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
+
+import _map from "lodash/map";
+import _get from "lodash/get";
 
 import CardComponent, { CardSkeleton } from "../components/Card";
 import Layout from "../components/Layout";
@@ -7,10 +11,18 @@ import InfiniteScroll from "../components/InfiniteScroll";
 
 import { axiosInstance } from "../config";
 
+const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
+
 const Home = ({ photos }) => {
   const [photosArr, setPhotos] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [hasMore, setHasMore] = React.useState(true);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [imgIndex, setImgIndex] = React.useState(1);
+
+  const photoSourceUrls = React.useMemo(() => {
+    return _map(photosArr, photo => _get(photo, "urls.small", ""));
+  }, [photosArr]);
 
   const fetchData = async () => {
     if (photosArr.length === 30) {
@@ -25,6 +37,11 @@ const Home = ({ photos }) => {
     }
   };
 
+  const toggleLightBox = i => {
+    setImgIndex(i + 1);
+    setIsVisible(!isVisible);
+  };
+
   React.useEffect(() => {
     setPhotos([...photosArr, ...photos]);
     setPage(page + 1);
@@ -33,7 +50,7 @@ const Home = ({ photos }) => {
   return (
     <Layout>
       <Head>
-        <title>Splash Photos.</title>
+        <title>SplashPhotography.</title>
         <meta property="og:url" content={`${process.env.DOMAIN}`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Splash Photos." />
@@ -48,9 +65,16 @@ const Home = ({ photos }) => {
           content="High quality images from the famous API Unsplash. View images, users and other information about them."
         />
         <link rel="canonical" href={`${process.env.DOMAIN}`} />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-2 card-columns">
+        <>
+          <LightBox
+            slide={imgIndex}
+            toggler={isVisible}
+            sources={photoSourceUrls}
+            key={photoSourceUrls}
+          />
+        </>
         <InfiniteScroll
           dataLength={photosArr.length}
           next={fetchData}
@@ -60,7 +84,12 @@ const Home = ({ photos }) => {
         >
           {photosArr &&
             photosArr.map((photo, i) => (
-              <CardComponent customClassName="mb-2" photo={photo} key={i} />
+              <CardComponent
+                customClassName="mb-2"
+                photo={photo}
+                toggleLightBox={() => toggleLightBox(i)}
+                key={i}
+              />
             ))}
         </InfiniteScroll>
       </div>
