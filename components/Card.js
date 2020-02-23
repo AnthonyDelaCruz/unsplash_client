@@ -9,7 +9,7 @@ export default function CardComponent({
   customClassName
 }) {
   return (
-    <Card className={customClassName}>
+    <Card className={`${customClassName} my-3 my-md-1`}>
       <div className="card-image">
         <Img
           style={{
@@ -42,6 +42,25 @@ export default function CardComponent({
             </Button>
           </div>
         </div>
+        <div className="d-md-none d-flex align-items-center justify-content-between p-2">
+          <div className="d-md-none d-flex align-items-center">
+            <Img
+              className="avatar mr-2"
+              src={photo.user.profile_image.small}
+              alt={photo.user.username}
+              debounce={1000}
+            />
+            <p className="m-0">{photo.user.name}</p>
+          </div>
+          <div className="d-md-none d-flex d-sm-none align-items-center">
+            <FaHeart /> <p className="mb-0 ml-2 likes">{photo.likes}</p>
+          </div>
+        </div>
+        <div className="d-md-none d-sm-block actions p-2">
+          <Button onClick={toggleLightBox} outline className="gallery-btn">
+            View in Gallery
+          </Button>
+        </div>
       </div>
       <style jsx>{`
         .card-image {
@@ -72,6 +91,11 @@ export default function CardComponent({
           left: 0;
           position: absolute;
           color: #ffffff;
+        }
+        @media only screen and (max-width: 768px) {
+          .card-image:hover .card-info {
+            opacity: 0;
+          }
         }
       `}</style>
     </Card>

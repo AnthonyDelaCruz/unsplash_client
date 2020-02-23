@@ -88,7 +88,6 @@ const Home = ({ photos }) => {
           {photosArr &&
             photosArr.map((photo, i) => (
               <CardComponent
-                customClassName="mb-2"
                 photo={photo}
                 toggleLightBox={() => toggleLightBox(i)}
                 key={i}

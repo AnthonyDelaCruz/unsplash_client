@@ -4,8 +4,15 @@ body {
 
 .gallery-btn {
   color: #ffffff !important;
-  border: 1px solid #ffffff !important;
+  border: 1px solid #ffffff;
 }
 .gallery-btn:hover {
   background: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+  .gallery-btn {
+    color: #333333 !important;
+    border: 1px solid #333333;
+  }
 }
