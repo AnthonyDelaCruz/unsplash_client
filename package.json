@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "framer-motion": "^1.8.4",
     "fslightbox-react": "^1.4.9",
     "next": "9.2.1",
     "react": "16.12.0",
