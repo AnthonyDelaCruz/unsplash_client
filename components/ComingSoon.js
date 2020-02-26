@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+/**
+ * @TODO
+ * Fix alignment if coming soon text
+ */
 export default function ComingSoon({ type }) {
   return (
     <div className="h-100 d-flex flex-column justify-content-center align-items-center">

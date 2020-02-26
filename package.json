@@ -12,12 +12,14 @@
     "bootstrap": "^4.4.1",
     "framer-motion": "^1.8.4",
     "fslightbox-react": "^1.4.9",
+    "moment": "^2.24.0",
     "next": "9.2.1",
     "react": "16.12.0",
     "react-cool-img": "^1.0.11",
     "react-dom": "16.12.0",
     "react-icons": "^3.9.0",
     "react-infinite-scroll-component": "^5.0.4",
+    "react-moment": "^0.9.7",
     "reactstrap": "^8.4.1"
   }
 }

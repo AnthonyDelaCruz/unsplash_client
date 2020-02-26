@@ -8,14 +8,23 @@ const pageVariants = {
   exit: { opacity: 0, transition: { duration: 0.2 } }
 };
 
-export default function Layout({ children }) {
+export default function Layout({ children, withOutSidebar = false }) {
   return (
     <div>
       <Nav />
       <div className="container-fluid">
         <div className="row">
-          <Sidebar customClassName="col-md-3 d-none d-md-flex flex-column justify-content-around" />
-          <div className="col-md-9 col-sm-12 p-0">
+          {!withOutSidebar && (
+            <Sidebar
+              customClassName={`${!withOutSidebar &&
+                "col-md-3"} d-none d-md-flex flex-column justify-content-around`}
+            />
+          )}
+          <div
+            className={`${
+              withOutSidebar ? "col-md-12" : "col-md-9"
+            } col-sm-12 p-0`}
+          >
             <motion.div
               initial="initial"
               animate="enter"
