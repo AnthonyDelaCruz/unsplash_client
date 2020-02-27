@@ -2,10 +2,16 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.gallery-btn {
-  color: #ffffff !important;
-  border: 1px solid #ffffff;
+.feature-photo {
+  border-radius: 8px;
 }
+.gallery-btn {
+  color: #434343 !important;
+  border: 1px solid #434343;
+  background: transparent;
+  font-weight: 400;
+}
+
 .gallery-btn:hover {
   background: transparent;
 }
@@ -14,5 +20,9 @@ body {
   .gallery-btn {
     color: #333333 !important;
     border: 1px solid #333333;
+  }
+  .feature-photo {
+    border-radius: unset;
+    width: 100%;
   }
 }

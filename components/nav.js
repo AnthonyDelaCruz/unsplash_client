@@ -4,8 +4,11 @@ const Nav = () => (
   <div className="navbarContainer shadow">
     <Navbar className="px-4 py-0 h-100">
       <NavbarBrand>
-        <h2 className="m-0">
+        <h2 className="d-none d-md-block m-0">
           Splash<span className="grandient-span">Photography</span>.
+        </h2>
+        <h2 className="d-sm-block d-md-none m-0">
+          S<span className="grandient-span">P</span>.
         </h2>
       </NavbarBrand>
     </Navbar>

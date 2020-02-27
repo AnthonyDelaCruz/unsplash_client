@@ -6,7 +6,6 @@ import _get from "lodash/get";
 
 import CardComponent, { CardSkeleton } from "../components/Card";
 import Layout from "../components/Layout";
-import Footer from "../components/Footer";
 import InfiniteScroll from "../components/InfiniteScroll";
 
 import { axiosInstance } from "../config";
@@ -95,7 +94,6 @@ const Home = ({ photos }) => {
             ))}
         </InfiniteScroll>
       </div>
-      <Footer />
       <style jsx>
         {`
           .card-columns {

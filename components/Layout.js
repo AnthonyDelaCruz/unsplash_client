@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Nav from "./nav";
 import Sidebar from "./Sidebar";
+import Footer from "./Footer.js";
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -8,7 +9,11 @@ const pageVariants = {
   exit: { opacity: 0, transition: { duration: 0.2 } }
 };
 
-export default function Layout({ children, withOutSidebar = false }) {
+export default function Layout({
+  children,
+  withOutSidebar = false,
+  withOutFooter = false
+}) {
   return (
     <div>
       <Nav />
@@ -24,6 +29,7 @@ export default function Layout({ children, withOutSidebar = false }) {
             className={`${
               withOutSidebar ? "col-md-12" : "col-md-9"
             } col-sm-12 p-0`}
+            style={{ backgroundColor: "#F0F0F0" }}
           >
             <motion.div
               initial="initial"
@@ -33,6 +39,7 @@ export default function Layout({ children, withOutSidebar = false }) {
             >
               {children}
             </motion.div>
+            {!withOutFooter && <Footer />}
           </div>
         </div>
       </div>
