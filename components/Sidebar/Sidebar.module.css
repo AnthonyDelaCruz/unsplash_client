@@ -1,0 +1,20 @@
+.sideBar {
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+  background: #dd5e89;
+  background: -webkit-linear-gradient(to bottom, #f7bb97, #dd5e89);
+  background: linear-gradient(to bottom, #f7bb97, #dd5e89);
+}
+
+.follow {
+  font-size: 1.2rem;
+}
+
+.socialLinks {
+  color: black;
+}
+
+.socialLinks:hover {
+  color: black;
+}

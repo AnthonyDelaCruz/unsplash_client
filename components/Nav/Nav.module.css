@@ -1,0 +1,16 @@
+.navbarContainer {
+  color: #ffffff;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #262626;
+}
+
+.grandientSpan {
+  font-weight: bold;
+  background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

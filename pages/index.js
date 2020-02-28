@@ -5,7 +5,7 @@ import _map from "lodash/map";
 import _get from "lodash/get";
 
 import CardComponent, { CardSkeleton } from "../components/Card";
-import Layout from "../components/Layout";
+import Layout from "../components/MainLayout";
 import InfiniteScroll from "../components/InfiniteScroll";
 
 import { axiosInstance } from "../config";

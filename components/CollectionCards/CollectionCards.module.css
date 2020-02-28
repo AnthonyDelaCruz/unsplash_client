@@ -1,0 +1,5 @@
+.imageBackground {
+  height: 15.625rem;
+  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}

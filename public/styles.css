@@ -1,26 +1,14 @@
 body {
   font-family: "Roboto", sans-serif;
+  height: 100%;
+  border: 2px solid red;
 }
 
 .feature-photo {
   border-radius: 8px;
 }
-.gallery-btn {
-  color: #434343 !important;
-  border: 1px solid #434343;
-  background: transparent;
-  font-weight: 400;
-}
-
-.gallery-btn:hover {
-  background: transparent;
-}
 
 @media only screen and (max-width: 768px) {
-  .gallery-btn {
-    color: #333333 !important;
-    border: 1px solid #333333;
-  }
   .feature-photo {
     border-radius: unset;
     width: 100%;

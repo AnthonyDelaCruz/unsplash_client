@@ -1,0 +1,17 @@
+.linkContainer {
+  margin: 10px 0;
+}
+
+.linkItem {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.linkItem:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}

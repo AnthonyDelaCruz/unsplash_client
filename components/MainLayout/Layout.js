@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import Nav from "./nav";
-import Sidebar from "./Sidebar";
-import Footer from "./Footer.js";
+import Nav from "../Nav/Nav";
+import Sidebar from "../Sidebar";
+import Footer from "../Footer";
+
+import styles from "./Layout.module.css";
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -15,7 +17,7 @@ export default function Layout({
   withOutFooter = false
 }) {
   return (
-    <div>
+    <div className="h-100">
       <Nav />
       <div className="container-fluid">
         <div className="row">
@@ -26,20 +28,20 @@ export default function Layout({
             />
           )}
           <div
-            className={`${
-              withOutSidebar ? "col-md-12" : "col-md-9"
+            className={`${withOutSidebar ? "col-md-12" : "col-md-9"} ${
+              styles.motionDiv
             } col-sm-12 p-0`}
-            style={{ backgroundColor: "#F0F0F0" }}
           >
             <motion.div
               initial="initial"
               animate="enter"
               exit="exit"
               variants={pageVariants}
+              className="h-100"
             >
               {children}
+              {!withOutFooter && <Footer />}
             </motion.div>
-            {!withOutFooter && <Footer />}
           </div>
         </div>
       </div>

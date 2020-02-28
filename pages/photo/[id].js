@@ -10,7 +10,7 @@ import {
 } from "react-icons/io";
 import Moment from "react-moment";
 
-import Layout from "../../components/Layout";
+import Layout from "../../components/MainLayout";
 import CollectionCards from "../../components/CollectionCards";
 import { axiosInstance } from "../../config";
 
@@ -138,9 +138,6 @@ export default function Photo({ id, photoDetails }) {
       <style jsx>{`
         .info-section-container {
           max-width: 37.5rem;
-        }
-        .info-section {
-          // padding: 0 2rem;
         }
         .tags {
           border-color: #cdcdcd;

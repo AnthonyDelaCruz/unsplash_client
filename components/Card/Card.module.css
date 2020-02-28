@@ -1,0 +1,52 @@
+.cardImage {
+  cursor: zoom-in;
+}
+
+.cardPhoto {
+  background-color: #eaeaea;
+  height: 400px;
+}
+
+.cardImage:hover .cardInfo {
+  opacity: 1;
+}
+
+.cardInfo {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  top: 0;
+  left: 0;
+  position: absolute;
+  color: #ffffff;
+}
+
+.avatar {
+  border-radius: 7px;
+}
+
+.likes {
+  margin-top: 0.2rem;
+}
+
+.galleryBtn {
+  color: #ffffff;
+  /* border: 1px solid #434343; */
+  background: #181818;
+  font-weight: 400;
+}
+
+.galleryBtn:hover {
+  background: #ffffff;
+  color: #181818;
+}
+
+@media only screen and (max-width: 768px) {
+  .cardImage:hover .cardInfo {
+    opacity: 0;
+  }
+}

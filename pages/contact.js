@@ -1,9 +1,9 @@
-import Layout from "../components/Layout";
+import Layout from "../components/MainLayout";
 import ComingSoon from "../components/ComingSoon";
 
 export default function Contact() {
   return (
-    <Layout>
+    <Layout withOutFooter>
       <ComingSoon type="page" />
     </Layout>
   );

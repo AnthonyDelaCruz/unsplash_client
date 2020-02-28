@@ -5,7 +5,9 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 import { useRouter } from "next/router";
-import CustomLink from "./Link";
+import CustomLink from "../Link";
+
+import styles from "./Sidebar.module.css";
 
 export default function Sidebar({ customClassName }) {
   const router = useRouter();
@@ -17,7 +19,7 @@ export default function Sidebar({ customClassName }) {
   ];
 
   return (
-    <div className={`sidebar ${customClassName}`}>
+    <div className={`${styles.sideBar} ${customClassName}`}>
       <IconContext.Provider value={{ className: "global-class-name" }}>
         <div className="d-flex flex-column align-items-center">
           <FaCameraRetro size="100px" />
@@ -34,11 +36,13 @@ export default function Sidebar({ customClassName }) {
         ))}
       </div>
       <div>
-        <p className="follow text-center">Follow me here!</p>
+        <p className={`${styles.follow} font-weight-bold text-center`}>
+          Follow me here!
+        </p>
         <div className="d-flex  mx-md-5 justify-content-around">
           <a
             rel="noreferrer"
-            className="social-links"
+            className={`${styles.socialLinks}`}
             href="https://www.facebook.com/tonydc23"
             target="_blank"
           >
@@ -46,7 +50,7 @@ export default function Sidebar({ customClassName }) {
           </a>
           <a
             rel="noreferrer"
-            className="social-links"
+            className={`${styles.socialLinks}`}
             href="https://github.com/AnthonyDelaCruz"
             target="_blank"
           >
@@ -54,7 +58,7 @@ export default function Sidebar({ customClassName }) {
           </a>
           <a
             rel="noreferrer"
-            className="social-links"
+            className={`${styles.socialLinks}`}
             href="https://www.linkedin.com/in/anthony-delacruz-956a97167/"
             target="_blank"
           >
@@ -62,23 +66,6 @@ export default function Sidebar({ customClassName }) {
           </a>
         </div>
       </div>
-      <style jsx>{`
-        .sidebar {
-          height: calc(100vh - 60px);
-          position: sticky;
-          top: 60px;
-          background: #dd5e89;
-          background: -webkit-linear-gradient(to bottom, #f7bb97, #dd5e89);
-          background: linear-gradient(to bottom, #f7bb97, #dd5e89);
-        }
-        .follow {
-          font-size: 1.2rem;
-          font-weight: bold;
-        }
-        .social-links {
-          color: black;
-        }
-      `}</style>
     </div>
   );
 }
