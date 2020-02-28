@@ -1,0 +1,22 @@
+.infoSectionContainer {
+  max-width: 37.5rem;
+}
+
+.tags {
+  border-color: #cdcdcd;
+}
+
+.tags:hover {
+  color: black !important;
+  background: transparent;
+}
+
+.relatedSection {
+  margin-top: 5rem;
+}
+
+.backToHome {
+  color: black;
+  font-size: 1rem;
+  text-decoration: none;
+}
