@@ -45,6 +45,10 @@
   color: #181818;
 }
 
+.photoUsername {
+  line-height: 1.2;
+}
+
 @media only screen and (max-width: 768px) {
   .cardImage:hover .cardInfo {
     opacity: 0;

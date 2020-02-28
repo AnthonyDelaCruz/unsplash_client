@@ -10,6 +10,8 @@ import InfiniteScroll from "../components/InfiniteScroll";
 
 import { axiosInstance } from "../config";
 
+import styles from "../public/pageStlyes/home.module.css";
+
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 
 const Home = ({ photos }) => {
@@ -68,7 +70,7 @@ const Home = ({ photos }) => {
         />
         <link rel="canonical" href={`${process.env.DOMAIN}`} />
       </Head>
-      <div className="p-2 card-columns">
+      <div className={`p-2 card-columns ${styles.cardsColumnsContainer}`}>
         <>
           <LightBox
             slide={imgIndex}
@@ -94,13 +96,6 @@ const Home = ({ photos }) => {
             ))}
         </InfiniteScroll>
       </div>
-      <style jsx>
-        {`
-          .card-columns {
-            column-gap: 0.5rem;
-          }
-        `}
-      </style>
     </Layout>
   );
 };
