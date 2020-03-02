@@ -14,7 +14,7 @@ import Layout from "../../components/MainLayout";
 import CollectionCards from "../../components/CollectionCards";
 import { axiosInstance } from "../../config";
 
-import styles from "../../public/pageStlyes/photoDetails.module.css";
+import styles from "../../public/pageStlyes/photoDetails.css";
 /**
  * @TODO
  * SEO tags

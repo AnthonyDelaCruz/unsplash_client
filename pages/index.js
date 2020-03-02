@@ -10,7 +10,7 @@ import InfiniteScroll from "../components/InfiniteScroll";
 
 import { axiosInstance } from "../config";
 
-import styles from "../public/pageStlyes/home.module.css";
+import styles from "../public/pageStlyes/home.css";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 
@@ -70,22 +70,22 @@ const Home = ({ photos }) => {
         />
         <link rel="canonical" href={`${process.env.DOMAIN}`} />
       </Head>
-      <div className={`p-2 card-columns ${styles.cardsColumnsContainer}`}>
-        <>
-          <LightBox
-            slide={imgIndex}
-            toggler={isVisible}
-            sources={photoSourceUrls}
-            key={photoSourceUrls}
-          />
-        </>
-        <InfiniteScroll
-          dataLength={photosArr.length}
-          next={fetchData}
-          hasMore={hasMore}
-          scrollThreshold={1}
-          loadingSkeleton={<CardSkeleton />}
-        >
+      <>
+        <LightBox
+          slide={imgIndex}
+          toggler={isVisible}
+          sources={photoSourceUrls}
+          key={photoSourceUrls}
+        />
+      </>
+      <InfiniteScroll
+        dataLength={photosArr.length}
+        next={fetchData}
+        hasMore={hasMore}
+        scrollThreshold={1}
+        loadingSkeleton={<CardSkeleton />}
+      >
+        <div className={`p-2 card-columns ${styles.cardsColumnsContainer}`}>
           {photosArr &&
             photosArr.map((photo, i) => (
               <CardComponent
@@ -94,8 +94,8 @@ const Home = ({ photos }) => {
                 key={i}
               />
             ))}
-        </InfiniteScroll>
-      </div>
+        </div>
+      </InfiniteScroll>
     </Layout>
   );
 };

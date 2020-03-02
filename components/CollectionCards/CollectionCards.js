@@ -1,5 +1,5 @@
 // import Link from "next/link";
-import styles from "./CollectionCards.module.css";
+import styles from "./CollectionCards.css";
 
 /**
  * @TODO

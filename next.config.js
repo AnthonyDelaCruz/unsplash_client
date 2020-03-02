@@ -1,4 +1,7 @@
-module.exports = {
+const withCSS = require("@zeit/next-css");
+
+module.exports = withCSS({
+  cssModules: true,
   env: {
     ACCESS_KEY: process.env.ACCESS_KEY,
     DOMAIN:
@@ -7,4 +10,4 @@ module.exports = {
         : "http://localhost:3000",
     FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID
   }
-};
+});

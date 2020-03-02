@@ -7,7 +7,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { useRouter } from "next/router";
 import CustomLink from "../Link";
 
-import styles from "./Sidebar.module.css";
+import styles from "./Sidebar.css";
 
 export default function Sidebar({ customClassName }) {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function Sidebar({ customClassName }) {
       <IconContext.Provider value={{ className: "global-class-name" }}>
         <div className="d-flex flex-column align-items-center">
           <FaCameraRetro size="100px" />
-          <p className="font-weight-bold my-3">from Unsplash API</p>
+          <p className="font-weight-bold my-3">from Unsplash</p>
         </div>
       </IconContext.Provider>
       <div className="d-flex flex-column align-items-center">

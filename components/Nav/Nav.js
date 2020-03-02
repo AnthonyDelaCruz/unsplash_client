@@ -1,5 +1,5 @@
 import { Navbar, NavbarBrand } from "reactstrap";
-import styles from "./Nav.module.css";
+import styles from "./Nav.css";
 
 const Nav = () => (
   <div className={`${styles.navbarContainer}`}>

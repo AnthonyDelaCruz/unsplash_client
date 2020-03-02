@@ -8,8 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
     "framer-motion": "^1.8.4",
     "fslightbox-react": "^1.4.9",
     "moment": "^2.24.0",

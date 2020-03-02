@@ -3,7 +3,7 @@ import { FaHeart } from "react-icons/fa";
 import Img from "react-cool-img";
 
 import { Card, Button } from "reactstrap";
-import styles from "./Card.module.css";
+import styles from "./Card.css";
 
 export default function CardComponent({
   toggleLightBox,

@@ -3,7 +3,7 @@ import Nav from "../Nav/Nav";
 import Sidebar from "../Sidebar";
 import Footer from "../Footer";
 
-import styles from "./Layout.module.css";
+import styles from "./Layout.css";
 
 const pageVariants = {
   initial: { opacity: 0 },

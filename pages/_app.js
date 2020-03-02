@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../public/styles.css";
 import { AnimatePresence } from "framer-motion";
 
