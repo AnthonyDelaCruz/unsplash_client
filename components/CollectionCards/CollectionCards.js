@@ -3,11 +3,6 @@ import Tags from "../../components/Tags";
 import UserLink from "../../components/UserLink";
 import styles from "./CollectionCards.css";
 
-/**
- * @TODO
- * Make user link and page
- *
- */
 export default function CollectionCards({ collection }) {
   return (
     <div className="col-md-4 col-sm-12">

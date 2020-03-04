@@ -2,6 +2,7 @@ import Img from "react-cool-img";
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 import Link from "next/link";
+import Head from "next/head";
 import {
   IoIosArrowRoundBack,
   IoIosEye,
@@ -19,7 +20,7 @@ import { axiosInstance } from "../../config";
 import styles from "../../public/pageStlyes/photoDetails.css";
 /**
  * @TODO
- * SEO tags
+ * fix unnecessary fetch at first render that causes error
  */
 
 export default function Photo({ id, photoDetails }) {
@@ -45,6 +46,30 @@ export default function Photo({ id, photoDetails }) {
 
   return (
     <Layout withOutSidebar>
+      <Head>
+        <title>{userName}</title>
+        <meta
+          name="description"
+          content={
+            photoDescription ? `${photoDescription}` : `${userName}'s photo.`
+          }
+        />
+        <meta property="og:title" content={`${userName}`} />
+        <meta
+          property="og:description"
+          content={
+            photoDescription ? `${photoDescription}` : `${userName}'s photo.`
+          }
+        />
+        <meta property="og:url" content={`${process.env.DOMAIN}/photo/${id}`} />
+        <meta
+          property="og:site_name"
+          content={`${process.env.APPLICATION_NAME}`}
+        />
+        <meta property="og:type" content="webiste" />
+        <meta property="og:image" content={`${photoImgUrl}`} />
+        <meta property="fb:app_id" content={`${process.env.FACEBOOK_APP_ID}`} />
+      </Head>
       <div className="px-2 px-md-5 py-3">
         <Link href="/">
           <a className={`${styles.backToHome}`}>

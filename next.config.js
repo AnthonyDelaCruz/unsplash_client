@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 
 const withCSS = require("@zeit/next-css");
 
@@ -10,6 +10,8 @@ module.exports = withCSS({
       process.env.NODE_ENV === "production"
         ? "http://unsplash-client.now.sh"
         : "http://localhost:3000",
-    FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID
+    FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,
+    APPLICATION_NAME: process.env.APPLICATION_NAME,
+    APPLICATION_NAME_SHORT: process.env.APPLICATION_NAME_SHORT
   }
 });
