@@ -14,16 +14,18 @@ export default function CardComponent({
     <Card className={`${customClassName} mb-2 mb-md-1`}>
       <div className={styles.cardImageContainer}>
         <div className={styles.cardImage}>
-          <Link href={`/photo/${photo.id}`}>
-            <div className="position-relative">
-              <div className={styles.cardInfo} />
-              <Img
-                className={`${styles.cardPhoto} h-auto w-100 img-fluid`}
-                src={photo.urls.small}
-                alt={photo.alt_description}
-                debounce={1000}
-              />
-            </div>
+          <Link href="/photo/[id]" as={`/photo/${photo.id}`}>
+            <a>
+              <div className="position-relative">
+                <div className={styles.cardInfo} />
+                <Img
+                  className={`${styles.cardPhoto} h-auto w-100 img-fluid`}
+                  src={photo.urls.small}
+                  alt={photo.alt_description}
+                  debounce={1000}
+                />
+              </div>
+            </a>
           </Link>
         </div>
         <div>
