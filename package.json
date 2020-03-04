@@ -10,6 +10,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "framer-motion": "^1.8.4",
     "fslightbox-react": "^1.4.9",
     "moment": "^2.24.0",
