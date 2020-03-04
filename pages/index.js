@@ -14,10 +14,6 @@ import styles from "../public/pageStlyes/home.css";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 
-/**
- * @TODO
- * Background changes when user scrolls. background of card column container and main container are different
- */
 const Home = ({ photos }) => {
   const [photosArr, setPhotos] = React.useState([]);
   const [page, setPage] = React.useState(1);

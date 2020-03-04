@@ -12,6 +12,8 @@ import Moment from "react-moment";
 
 import Layout from "../../components/MainLayout";
 import CollectionCards from "../../components/CollectionCards";
+import Tags from "../../components/Tags";
+
 import { axiosInstance } from "../../config";
 
 import styles from "../../public/pageStlyes/photoDetails.css";
@@ -106,13 +108,7 @@ export default function Photo({ id, photoDetails }) {
               <p>Tags</p>
               <div>
                 {tags.map(tag => (
-                  <Link href="/">
-                    <a
-                      className={`${styles.tags} btn btn-outline-danger mr-2 mb-2 text-muted`}
-                    >
-                      {tag.title}
-                    </a>
-                  </Link>
+                  <Tags title={tag.title} />
                 ))}
               </div>
             </div>

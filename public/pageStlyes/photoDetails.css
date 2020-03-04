@@ -2,10 +2,6 @@
   max-width: 37.5rem;
 }
 
-.tags {
-  border-color: #cdcdcd;
-}
-
 .tags:hover {
   color: black !important;
   background: transparent;

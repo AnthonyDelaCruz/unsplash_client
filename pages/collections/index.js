@@ -1,5 +1,5 @@
-import Layout from "../components/MainLayout";
-import ComingSoon from "../components/ComingSoon";
+import Layout from "../../components/MainLayout";
+import ComingSoon from "../../components/ComingSoon";
 
 export default function Gallery() {
   return (
