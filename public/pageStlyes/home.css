@@ -1,5 +1,6 @@
 .cardsColumnsContainer {
   column-gap: 0.5rem;
+  background: #eaeaea;
 }
 
 @media only screen and (max-width: 768px) {

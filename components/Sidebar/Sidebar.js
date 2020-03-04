@@ -13,9 +13,9 @@ export default function Sidebar({ customClassName }) {
   const router = useRouter();
   const links = [
     { text: "Home", href: "/" },
-    { text: "Gallery", href: "/gallery" },
+    { text: "Collections", href: "/collections" },
     { text: "About", href: "/about" },
-    { text: "Contact", href: "/contact" }
+    { text: "Users", href: "/users" }
   ];
 
   return (
