@@ -14,14 +14,12 @@ import Moment from "react-moment";
 import Layout from "../../components/MainLayout";
 import CollectionCards from "../../components/CollectionCards";
 import Tags from "../../components/Tags";
+import MotionDiv from "../../components/MotionDiv";
 
 import { axiosInstance } from "../../config";
+import { fadeInFromTop } from "../../utils/animations";
 
 import styles from "../../public/pageStlyes/photoDetails.css";
-/**
- * @TODO
- * fix unnecessary fetch at first render that causes error
- */
 
 export default function Photo({ id, photoDetails }) {
   const photoImgUrl = _get(photoDetails, "urls.small", "");
@@ -73,80 +71,88 @@ export default function Photo({ id, photoDetails }) {
       <div className="px-2 px-md-5 py-3">
         <Link href="/">
           <a className={`${styles.backToHome}`}>
-            <IoIosArrowRoundBack size="1.875rem" /> Back to Home
+            <IoIosArrowRoundBack size="1.875rem" />
+            Back to Home
           </a>
         </Link>
       </div>
-      <div className="photo d-flex flex-column-reverse flex-md-row justify-content-md-center pt-md-5 pb-md-5 pt-sm-0">
-        <div
-          className={`${styles.infoSectionContainer} mt-4 mt-md-0 px-3 px-md-5`}
-        >
-          <div className="d-flex align-items-center info-section">
-            <Img
-              className="h-auto img img-fluid"
-              src={userAvatarUrl}
-              alt={userName}
-            />
-            <h3 className="mx-3 mb-0">{userName}</h3>
-          </div>
-          <div className="my-4 my-md-3 d-flex justify-content-between">
-            <div className="mx-1 d-flex align-items-center flex-column flex-md-row">
-              <div className="d-flex">
-                <IoIosEye size="22px" className="mr-1 mr-md-2" />
-                <span className="mr-2">Views</span>
+      <MotionDiv variants={fadeInFromTop}>
+        <div className="photo d-flex flex-column-reverse flex-md-row justify-content-md-center pt-md-5 pb-md-5 pt-sm-0">
+          <div
+            className={`${styles.infoSectionContainer} mt-4 mt-md-0 px-3 px-md-5`}
+          >
+            <div className="d-flex align-items-center info-section">
+              <Img
+                style={{ background: "black", height: "40px", width: "40px" }}
+                className="h-auto img img-fluid"
+                src={userAvatarUrl}
+                alt={userName}
+              />
+              <h3 className="mx-3 mb-0">{userName}</h3>
+            </div>
+            <div className="my-4 my-md-3 d-flex justify-content-between">
+              <div className="mx-1 d-flex align-items-center flex-column flex-md-row">
+                <div className="d-flex">
+                  <IoIosEye size="22px" className="mr-1 mr-md-2" />
+                  <span className="mr-2">Views</span>
+                </div>
+                {viewCount}
               </div>
-              {viewCount}
-            </div>
-            <div className="mx-1 d-flex align-items-center flex-column flex-md-row">
-              <div>
-                <IoIosHeart size="20px" className="mr-1 mr-md-2" />
-                <span className="mr-2">Likes</span>
+              <div className="mx-1 d-flex align-items-center flex-column flex-md-row">
+                <div>
+                  <IoIosHeart size="20px" className="mr-1 mr-md-2" />
+                  <span className="mr-2">Likes</span>
+                </div>
+                {likeCount}
               </div>
-              {likeCount}
-            </div>
-            <div className="mx-1 d-flex align-items-center flex-column flex-md-row">
-              <div>
-                <IoIosCloudDownload size="20px" className="mr-1 mr-md-2" />
-                <span className="mr-2">Downloads</span>
+              <div className="mx-1 d-flex align-items-center flex-column flex-md-row">
+                <div>
+                  <IoIosCloudDownload size="20px" className="mr-1 mr-md-2" />
+                  <span className="mr-2">Downloads</span>
+                </div>
+                {downloadCount}
               </div>
-              {downloadCount}
             </div>
-          </div>
-          <div className="info-section mt-3">
-            <div>
-              <p>
-                Created:{" "}
-                <span className="text-muted">
-                  <Moment format="YYYY/MM/DD">{updatedAtDate}</Moment>
-                </span>
-              </p>
-            </div>
-            {photoDescription && (
+            <div className="info-section mt-3">
               <div>
                 <p>
-                  About the photo:{" "}
-                  <span className="text-muted">{photoDescription}</span>
+                  Created:{" "}
+                  <span className="text-muted">
+                    <Moment format="YYYY/MM/DD">{updatedAtDate}</Moment>
+                  </span>
                 </p>
               </div>
-            )}
-            <div>
-              <p>Tags</p>
+              {photoDescription && (
+                <div>
+                  <p>
+                    About the photo:{" "}
+                    <span className="text-muted">{photoDescription}</span>
+                  </p>
+                </div>
+              )}
               <div>
-                {tags.map(tag => (
-                  <Tags title={tag.title} />
-                ))}
+                {!_isEmpty(tags) && (
+                  <>
+                    <p>Tags</p>
+                    <div>
+                      {tags.map(tag => (
+                        <Tags title={tag.title} />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
+          <div className="mb-4 mb-md-0 text-center">
+            <Img
+              className="feature-photo h-auto img img-fluid"
+              src={photoImgUrl}
+              alt={photoAltDescription}
+            />
+          </div>
         </div>
-        <div className="mb-4 mb-md-0 text-center">
-          <Img
-            className="feature-photo h-auto img img-fluid"
-            src={photoImgUrl}
-            alt={photoAltDescription}
-          />
-        </div>
-      </div>
+      </MotionDiv>
       <div className={`${styles.relatedSection} text-center my-5`}>
         <h3>
           Related <span className="font-weight-bold">Collections.</span>

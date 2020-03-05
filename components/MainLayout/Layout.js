@@ -1,15 +1,10 @@
-import { motion } from "framer-motion";
+import MotionDiv from "../MotionDiv";
 import Nav from "../Nav/Nav";
 import Sidebar from "../Sidebar";
 import Footer from "../Footer";
 
+import { fadeIn } from "../../utils/animations";
 import styles from "./Layout.css";
-
-const pageVariants = {
-  initial: { opacity: 0 },
-  enter: { opacity: 1, transition: { duration: 0.5 } },
-  exit: { opacity: 0, transition: { duration: 0.2 } }
-};
 
 export default function Layout({
   children,
@@ -32,16 +27,10 @@ export default function Layout({
               styles.motionDiv
             } col-sm-12 p-0`}
           >
-            <motion.div
-              initial="initial"
-              animate="enter"
-              exit="exit"
-              variants={pageVariants}
-              className="h-100"
-            >
+            <MotionDiv variants={fadeIn} className="h-100">
               {children}
               {!withOutFooter && <Footer />}
-            </motion.div>
+            </MotionDiv>
           </div>
         </div>
       </div>
