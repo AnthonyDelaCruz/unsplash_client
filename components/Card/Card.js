@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FaHeart } from "react-icons/fa";
 import Img from "react-cool-img";
 
@@ -10,23 +11,33 @@ export default function CardComponent({
   photo,
   customClassName
 }) {
+  const router = useRouter();
   return (
     <Card className={`${customClassName} mb-2 mb-md-1`}>
       <div className={styles.cardImageContainer}>
         <div className={styles.cardImage}>
-          <Link href="/photo/[id]" as={`/photo/${photo.id}`}>
-            <a>
-              <div className="position-relative">
-                <div className={styles.cardInfo} />
-                <Img
-                  className={`${styles.cardPhoto} h-auto w-100 img-fluid`}
-                  src={photo.urls.small}
-                  alt={photo.alt_description}
-                  debounce={1000}
-                />
-              </div>
-            </a>
-          </Link>
+          {/* <Link
+            onClick="return false;"
+            href="/photo/[id]"
+            as={`/photo/${photo.id}`}
+          > */}
+          {/* <a> */}
+          <div
+            onClick={() => {
+              router.push("/photo/[id]", `/photo/${photo.id}`);
+            }}
+            className="position-relative"
+          >
+            <div className={styles.cardInfo} />
+            <Img
+              className={`${styles.cardPhoto} h-auto w-100 img-fluid`}
+              src={photo.urls.small}
+              alt={photo.alt_description}
+              debounce={1000}
+            />
+          </div>
+          {/* </a> */}
+          {/* </Link> */}
         </div>
         <div>
           <div className="d-flex align-items-center justify-content-between p-2">

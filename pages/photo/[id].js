@@ -42,6 +42,10 @@ export default function Photo({ id, photoDetails }) {
     []
   );
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <Layout withOutSidebar>
       <Head>
