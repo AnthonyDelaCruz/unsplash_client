@@ -25,7 +25,7 @@ export default function Layout({
           <div
             className={`${withOutSidebar ? "col-md-12" : "col-md-9"} ${
               styles.motionDiv
-            } col-sm-12 p-0`}
+            } col-sm-12 p-0 h-100`}
           >
             <MotionDiv variants={fadeIn} className="h-100">
               {children}

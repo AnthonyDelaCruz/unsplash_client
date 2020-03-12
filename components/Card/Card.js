@@ -16,12 +16,6 @@ export default function CardComponent({
     <Card className={`${customClassName} mb-2 mb-md-1`}>
       <div className={styles.cardImageContainer}>
         <div className={styles.cardImage}>
-          {/* <Link
-            onClick="return false;"
-            href="/photo/[id]"
-            as={`/photo/${photo.id}`}
-          > */}
-          {/* <a> */}
           <div
             onClick={() => {
               router.push("/photo/[id]", `/photo/${photo.id}`);
