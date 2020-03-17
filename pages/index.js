@@ -10,6 +10,8 @@ import InfiniteScroll from "../components/InfiniteScroll";
 
 import { axiosInstance } from "../config";
 
+import { useImageToggleHook } from "../hooks";
+
 import styles from "../public/pageStlyes/home.css";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
@@ -18,12 +20,12 @@ const Home = ({ photos }) => {
   const [photosArr, setPhotos] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [hasMore, setHasMore] = React.useState(true);
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [imgIndex, setImgIndex] = React.useState(1);
 
-  const photoSourceUrls = React.useMemo(() => {
-    return _map(photosArr, photo => _get(photo, "urls.small", ""));
-  }, [photosArr]);
+  const { imgIndex, toggleLightBox, isVisible } = useImageToggleHook();
+
+  const photoSourceUrls = _map(photosArr, photo =>
+    _get(photo, "urls.small", "")
+  );
 
   const fetchData = async () => {
     if (photosArr.length === 30) {
@@ -36,11 +38,6 @@ const Home = ({ photos }) => {
       setPhotos([...photosArr, ...response.data]);
       setPage(page + 1);
     }
-  };
-
-  const toggleLightBox = i => {
-    setImgIndex(i + 1);
-    setIsVisible(!isVisible);
   };
 
   React.useEffect(() => {

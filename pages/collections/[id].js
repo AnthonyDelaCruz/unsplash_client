@@ -1,12 +1,24 @@
-import Layout from "../../components/MainLayout";
 import { useRouter } from "next/router";
-import { axiosInstance } from "../../config";
+
+import dynamic from "next/dynamic";
+import Link from "next/Link";
+
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
+import _map from "lodash/map";
+
 import CardComponent from "../../components/Card";
+import Layout from "../../components/MainLayout";
+
+import { axiosInstance } from "../../config";
+
+import { useImageToggleHook } from "../../hooks";
+
+const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 
 export default function CollectionContainer() {
   const [collectionData, setCollectionData] = React.useState();
+  const { imgIndex, toggleLightBox, isVisible } = useImageToggleHook();
   const router = useRouter();
 
   React.useEffect(() => {
@@ -16,14 +28,41 @@ export default function CollectionContainer() {
       });
     }
   }, [router]);
+
   const title = _get(collectionData, "title", "");
-  const coverPhoto = _get(collectionData, "cover_photo.urls.small", "");
   const previewPhotos = _get(collectionData, "preview_photos", []);
   const userObj = _get(collectionData, "user", {});
+  const photoSourceUrls = _map(previewPhotos, photo =>
+    _get(photo, "urls.small", "")
+  );
+
   return (
     <Layout withOutSidebar>
-      <div className="container">
-        <h1 className="text-center">{title}</h1>
+      <>
+        <LightBox
+          slide={imgIndex}
+          toggler={isVisible}
+          sources={photoSourceUrls}
+          key={photoSourceUrls}
+        />
+      </>
+      <h1 className="text-center font-weight-bold my-5">Collections.</h1>
+      <div className="mb-4">
+        <div className="text-center">
+          <h4>
+            Collection title: <strong>{title}</strong>
+          </h4>
+        </div>
+        <div className="text-center">
+          By:{" "}
+          <strong>
+            <Link href={`/user/${userObj.name}`}>
+              <a>{userObj.name}</a>
+            </Link>
+          </strong>
+        </div>
+      </div>
+      <div className="container card-columns mb-5">
         {!_isEmpty(previewPhotos) &&
           previewPhotos.map((photo, i) => {
             const photoWithUserObj = {
@@ -32,7 +71,13 @@ export default function CollectionContainer() {
                 ...userObj
               }
             };
-            return <CardComponent key={i} photo={photoWithUserObj} />;
+            return (
+              <CardComponent
+                toggleLightBox={() => toggleLightBox(i)}
+                key={i}
+                photo={photoWithUserObj}
+              />
+            );
           })}
       </div>
     </Layout>
