@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import dynamic from "next/dynamic";
-import Link from "next/Link";
+import Link from "next/link";
 
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
