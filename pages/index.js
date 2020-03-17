@@ -48,7 +48,7 @@ const Home = ({ photos }) => {
   return (
     <Layout>
       <Head>
-        <title>SplashPhotography.</title>
+        <title>SplashPhotography</title>
         <meta property="og:url" content={`${process.env.DOMAIN}`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Splash Photos." />
