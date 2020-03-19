@@ -18,7 +18,7 @@ import Tags from "../../components/Tags";
 import MotionDiv from "../../components/MotionDiv";
 
 import { axiosInstance } from "../../config";
-import { fadeInFromTop } from "../../utils/animations";
+import { fadeInFromBottom } from "../../utils/animations";
 
 import PhotoPageSkeleton from "../../components/Skeletons/PhotoPageSkeleton";
 
@@ -81,7 +81,7 @@ export default function Photo({ id }) {
         </Link>
       </div>
       {!_isEmpty(photoDetails) ? (
-        <MotionDiv variants={fadeInFromTop}>
+        <MotionDiv variants={fadeInFromBottom}>
           <div className="photo d-flex flex-column-reverse flex-md-row justify-content-md-center pt-md-5 pb-md-5 pt-sm-0">
             <div
               className={`${styles.infoSectionContainer} mt-4 mt-md-0 px-3 px-md-5`}

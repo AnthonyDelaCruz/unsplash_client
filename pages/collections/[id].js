@@ -15,7 +15,7 @@ import MotionDiv from "../../components/MotionDiv";
 
 import { axiosInstance } from "../../config";
 import { useImageToggleHook } from "../../hooks";
-import { fadeInFromTop } from "../../utils/animations";
+import { fadeInFromBottom } from "../../utils/animations";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 import styles from "../../public/pageStlyes/userCollection.css";
@@ -101,7 +101,7 @@ export default function CollectionContainer({ id }) {
         )}
       </div>
       {!_isEmpty(previewPhotos) ? (
-        <MotionDiv variants={fadeInFromTop}>
+        <MotionDiv variants={fadeInFromBottom}>
           <div
             className={`${styles.cardsColumnsContainer} container card-columns mb-5`}
           >
