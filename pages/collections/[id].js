@@ -7,6 +7,7 @@ import Head from "next/head";
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 import _map from "lodash/map";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 import CardComponent, { CardSkeleton } from "../../components/Card";
 import Layout from "../../components/MainLayout";
@@ -61,6 +62,14 @@ export default function CollectionContainer({ id }) {
           href={`${process.env.DOMAIN}/collections/${id}`}
         />
       </Head>
+      <div className="px-2 px-md-5 py-3">
+        <Link href="/">
+          <a className={`${styles.backToHome}`}>
+            <IoIosArrowRoundBack size="1.875rem" />
+            Back to Home
+          </a>
+        </Link>
+      </div>
       <>
         <LightBox
           slide={imgIndex}
@@ -69,7 +78,7 @@ export default function CollectionContainer({ id }) {
           key={photoSourceUrls}
         />
       </>
-      <h1 className="text-center font-weight-bold my-5">Collections.</h1>
+      <h1 className="text-center font-weight-bold mb-5">Collections.</h1>
       <div className="mb-4">
         {!_isEmpty(collectionData) ? (
           <>

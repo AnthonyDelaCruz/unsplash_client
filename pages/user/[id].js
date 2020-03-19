@@ -3,7 +3,7 @@ import ComingSoon from "../../components/ComingSoon";
 
 export default function UserProfile() {
   return (
-    <Layout withOutSidebar>
+    <Layout withOutSidebarComingSoon withOutSidebar>
       <ComingSoon type="page" />
     </Layout>
   );

@@ -2,6 +2,16 @@
   column-gap: 0.5rem;
 }
 
+.backToHome {
+  color: black;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.backToHome:hover {
+  color: black;
+}
+
 @media only screen and (max-width: 768px) {
   .cardsColumnsContainer {
     column-count: 1;

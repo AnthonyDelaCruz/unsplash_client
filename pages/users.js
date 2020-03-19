@@ -3,7 +3,7 @@ import ComingSoon from "../components/ComingSoon";
 
 export default function Contact() {
   return (
-    <Layout withOutFooter>
+    <Layout withOutSidebarComingSoon withOutFooter>
       <ComingSoon type="page" />
     </Layout>
   );

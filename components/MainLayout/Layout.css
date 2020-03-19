@@ -1,3 +1,16 @@
 .motionDiv {
   background: #f0f0f0;
 }
+
+.withOutSidebarContainer {
+  height: calc(100vh - 60px);
+}
+
+@media only screen and (max-width: 768px) {
+  .withOutSidebarContainer {
+    height: calc(100vh - 60px);
+    text-align: center;
+    padding: 0 1rem;
+    font-size: 1.25rem;
+  }
+}

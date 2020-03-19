@@ -158,7 +158,6 @@ export default function Photo({ id }) {
               />
             </div>
           </div>
-          )
         </MotionDiv>
       ) : (
         <PhotoPageSkeleton />

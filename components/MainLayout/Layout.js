@@ -9,7 +9,8 @@ import styles from "./Layout.css";
 export default function Layout({
   children,
   withOutSidebar = false,
-  withOutFooter = false
+  withOutFooter = false,
+  withOutSidebarComingSoon
 }) {
   return (
     <div className="h-100">
@@ -18,14 +19,17 @@ export default function Layout({
         <div className="row">
           {!withOutSidebar && (
             <Sidebar
-              customClassName={`${!withOutSidebar &&
-                "col-md-3"} d-none d-md-flex flex-column justify-content-around`}
+              customClassName={`
+              d-none d-md-flex flex-column justify-content-around
+              ${!withOutSidebar && "col-md-3"}
+                `}
             />
           )}
           <div
-            className={`${withOutSidebar ? "col-md-12" : "col-md-9"} ${
-              styles.motionDiv
-            } col-sm-12 p-0 h-100`}
+            className={`col-sm-12 p-0 
+            ${withOutSidebar ? "col-md-12" : "col-md-9"}
+            ${withOutSidebarComingSoon && styles.withOutSidebarContainer}
+            ${styles.motionDiv}`}
           >
             <MotionDiv variants={fadeIn} className="h-100">
               {children}
