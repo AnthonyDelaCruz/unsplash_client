@@ -36,11 +36,13 @@ export default function CardComponent({
           <div className="d-flex align-items-center justify-content-between p-2">
             <div className="d-flex align-items-center">
               <Img
+                style={{ background: "#333333", height: "30px", width: "30px" }}
                 className={`${styles.avatar} mr-2`}
                 src={photo.user.profile_image.small}
                 alt={photo.user.username}
                 debounce={1000}
               />
+              image
               <p className={`${styles.photoUsername} m-0`}>{photo.user.name}</p>
             </div>
             {!_isEmpty(photo.likes) && (
