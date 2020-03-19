@@ -162,6 +162,7 @@ export default function Photo({ id }) {
             </div>
             <div className="mb-4 mb-md-0 text-center">
               <Img
+                style={{ background: "black", height: "400px", width: "400px" }}
                 className="feature-photo h-auto img img-fluid"
                 src={photoImgUrl}
                 alt={photoAltDescription}

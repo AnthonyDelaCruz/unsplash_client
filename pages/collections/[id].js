@@ -7,7 +7,7 @@ import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 import _map from "lodash/map";
 
-import CardComponent from "../../components/Card";
+import CardComponent, { CardSkeleton } from "../../components/Card";
 import Layout from "../../components/MainLayout";
 
 import { axiosInstance } from "../../config";
@@ -63,22 +63,23 @@ export default function CollectionContainer() {
         </div>
       </div>
       <div className="container card-columns mb-5">
-        {!_isEmpty(previewPhotos) &&
-          previewPhotos.map((photo, i) => {
-            const photoWithUserObj = {
-              ...photo,
-              user: {
-                ...userObj
-              }
-            };
-            return (
-              <CardComponent
-                toggleLightBox={() => toggleLightBox(i)}
-                key={i}
-                photo={photoWithUserObj}
-              />
-            );
-          })}
+        {!_isEmpty(previewPhotos)
+          ? previewPhotos.map((photo, i) => {
+              const photoWithUserObj = {
+                ...photo,
+                user: {
+                  ...userObj
+                }
+              };
+              return (
+                <CardComponent
+                  toggleLightBox={() => toggleLightBox(i)}
+                  key={i}
+                  photo={photoWithUserObj}
+                />
+              );
+            })
+          : _map([1, 2, 3], () => <CardSkeleton />)}
       </div>
     </Layout>
   );
