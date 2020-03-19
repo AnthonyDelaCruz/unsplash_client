@@ -55,22 +55,11 @@ const Home = () => {
       <Head>
         <title>SplashPhotography.</title>
         <meta property="og:url" content={`${process.env.DOMAIN}`} />
-        <meta property="og:type" content="website" />
         <meta property="og:title" content="Splash Photos." />
         <meta
           property="og:description"
           content="High quality images from the famous API Unsplash. View images, users and other information about them."
         />
-        <meta
-          property="og:image"
-          content={`${process.env.DOMAIN}/ApplicationSnapShot.png`}
-        />
-        <meta property="og:url" content={`${process.env.DOMAIN}`} />
-        <meta
-          property="og:site_name"
-          content={`${process.env.APPLICATION_NAME}`}
-        />
-        <meta property="fb:app_id" content={`${process.env.FACEBOOK_APP_ID}`} />
         <meta
           name="description"
           content="High quality images from the famous API Unsplash. View images, users and other information about them."

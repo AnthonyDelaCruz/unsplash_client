@@ -1,0 +1,9 @@
+.cardsColumnsContainer {
+  column-gap: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .cardsColumnsContainer {
+    column-count: 1;
+  }
+}

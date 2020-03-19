@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaHeart } from "react-icons/fa";
 import Img from "react-cool-img";
+import _isEmpty from "lodash/isEmpty";
 
 import { Card, Button } from "reactstrap";
 import styles from "./Card.css";
@@ -42,10 +43,12 @@ export default function CardComponent({
               />
               <p className={`${styles.photoUsername} m-0`}>{photo.user.name}</p>
             </div>
-            <div className="d-flex align-items-center">
-              <FaHeart />{" "}
-              <p className={`${styles.likes} mb-0 ml-2`}>{photo.likes}</p>
-            </div>
+            {!_isEmpty(photo.likes) && (
+              <div className="d-flex align-items-center">
+                <FaHeart />{" "}
+                <p className={`${styles.likes} mb-0 ml-2`}>{photo.likes}</p>
+              </div>
+            )}
           </div>
           <div className="d-none d-md-block actions p-2 text-center mt-2">
             <Button

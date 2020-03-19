@@ -5,6 +5,20 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta
+            property="og:image"
+            content={`${process.env.DOMAIN}/ApplicationSnapShot.png`}
+          />
+          <meta
+            property="og:site_name"
+            content={`${process.env.APPLICATION_NAME}`}
+          />
+          <meta
+            property="fb:app_id"
+            content={`${process.env.FACEBOOK_APP_ID}`}
+          />
+          <meta type="og:type" content="website" />
+          <meta property="og:url" content={`${process.env.DOMAIN}`} />
           <link
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             rel="stylesheet"
