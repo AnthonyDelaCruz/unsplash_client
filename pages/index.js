@@ -3,20 +3,19 @@ import dynamic from "next/dynamic";
 
 import _map from "lodash/map";
 import _get from "lodash/get";
+import _isEmpty from "lodash/isEmpty";
 
 import CardComponent, { CardSkeleton } from "../components/Card";
 import Layout from "../components/MainLayout";
 import InfiniteScroll from "../components/InfiniteScroll";
 
 import { axiosInstance } from "../config";
-
 import { useImageToggleHook } from "../hooks";
-
 import styles from "../public/pageStlyes/home.css";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 
-const Home = ({ photos }) => {
+const Home = () => {
   const [photosArr, setPhotos] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [hasMore, setHasMore] = React.useState(true);
@@ -41,8 +40,14 @@ const Home = ({ photos }) => {
   };
 
   React.useEffect(() => {
-    setPhotos([...photosArr, ...photos]);
-    setPage(page + 1);
+    axiosInstance
+      .get("/photos", {
+        params: { per_page: 10 }
+      })
+      .then(response => {
+        setPhotos([...photosArr, ...response.data]);
+        setPage(page + 1);
+      });
   }, []);
 
   return (
@@ -85,31 +90,25 @@ const Home = ({ photos }) => {
         next={fetchData}
         hasMore={hasMore}
         scrollThreshold={1}
-        loadingSkeleton={<CardSkeleton />}
       >
-        <div className={`p-2 card-columns ${styles.cardsColumnsContainer}`}>
-          {photosArr &&
-            photosArr.map((photo, i) => (
+        <div
+          className={`p-2 card-columns h-100 ${styles.cardsColumnsContainer}`}
+        >
+          {_isEmpty(photosArr) &&
+            [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => <CardSkeleton />)}
+          {photosArr.map((photo, i) => (
+            <div>
               <CardComponent
                 photo={photo}
                 toggleLightBox={() => toggleLightBox(i)}
                 key={i}
               />
-            ))}
+            </div>
+          ))}
         </div>
       </InfiniteScroll>
     </Layout>
   );
-};
-
-Home.getInitialProps = async () => {
-  const response = await axiosInstance.get("/photos", {
-    params: { per_page: 10 }
-  });
-
-  return {
-    photos: response.data
-  };
 };
 
 export default Home;

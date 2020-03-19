@@ -30,8 +30,6 @@ export default function CardComponent({
               debounce={1000}
             />
           </div>
-          {/* </a> */}
-          {/* </Link> */}
         </div>
         <div>
           <div className="d-flex align-items-center justify-content-between p-2">
@@ -66,8 +64,17 @@ export default function CardComponent({
 
 export const CardSkeleton = () => {
   return (
-    <div
-      className={`${styles.cardPhoto} p-2 w-100 d-flex flex-column justify-content-between`}
-    ></div>
+    <Card className={`w-100 d-flex flex-column justify-content-between`}>
+      <div className={styles.imageSkeleton}></div>
+      <div className="p-2 d-flex justify-content-between">
+        <div className="d-flex align-items-center">
+          <div className={styles.avatarSkeleton}></div>
+          <div className={`mx-2 ${styles.usernameSkeleton}`}></div>
+        </div>
+        <div className="d-flex align-items-center">
+          <div className={styles.likeSkeleton}></div>
+        </div>
+      </div>
+    </Card>
   );
 };
