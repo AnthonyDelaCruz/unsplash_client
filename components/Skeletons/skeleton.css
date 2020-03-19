@@ -1,0 +1,29 @@
+.avatarSkeleton {
+  height: 50px;
+  width: 50px;
+  background: #333333;
+}
+
+.usernameSkeleton {
+  height: 40px;
+  width: 300px;
+  background: #333333;
+}
+
+.featuredPhotoSkeleton {
+  width: 400px;
+  height: 400px;
+  background: #333333;
+}
+
+.photoData {
+  height: 30px;
+  width: 100px;
+  background: #333333;
+}
+
+.dateSkeleton {
+  height: 30px;
+  width: 200px;
+  background: #333333;
+}
