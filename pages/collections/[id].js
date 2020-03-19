@@ -100,29 +100,35 @@ export default function CollectionContainer({ id }) {
           <div className="text-center">Loading collection info...</div>
         )}
       </div>
-      <MotionDiv variants={fadeInFromTop}>
-        <div
-          className={`${styles.cardsColumnsContainer} container card-columns mb-5`}
-        >
-          {!_isEmpty(previewPhotos)
-            ? previewPhotos.map((photo, i) => {
-                const photoWithUserObj = {
-                  ...photo,
-                  user: {
-                    ...userObj
-                  }
-                };
-                return (
-                  <CardComponent
-                    toggleLightBox={() => toggleLightBox(i)}
-                    key={i}
-                    photo={photoWithUserObj}
-                  />
-                );
-              })
-            : _map([1, 2, 3], () => <CardSkeleton />)}
+      {!_isEmpty(previewPhotos) ? (
+        <MotionDiv variants={fadeInFromTop}>
+          <div
+            className={`${styles.cardsColumnsContainer} container card-columns mb-5`}
+          >
+            {previewPhotos.map((photo, i) => {
+              const photoWithUserObj = {
+                ...photo,
+                user: {
+                  ...userObj
+                }
+              };
+              return (
+                <CardComponent
+                  toggleLightBox={() => toggleLightBox(i)}
+                  key={i}
+                  photo={photoWithUserObj}
+                />
+              );
+            })}
+          </div>
+        </MotionDiv>
+      ) : (
+        <div className="container card-columns my-5">
+          {_map([1, 2, 3], () => (
+            <CardSkeleton />
+          ))}
         </div>
-      </MotionDiv>
+      )}
     </Layout>
   );
 }
