@@ -7,12 +7,12 @@ import Head from "next/head";
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 import _map from "lodash/map";
-import { IoIosArrowRoundBack } from "react-icons/io";
 
 import CardComponent, { CardSkeleton } from "../../components/Card";
 import Layout from "../../components/MainLayout";
 import MotionDiv from "../../components/MotionDiv";
-
+import HomeLink from "../../components/HomeLink";
+import UserLink from "../../components/UserLink";
 import { axiosInstance } from "../../config";
 import { useImageToggleHook } from "../../hooks";
 import { fadeInFromBottom } from "../../utils/animations";
@@ -62,14 +62,7 @@ export default function CollectionContainer({ id }) {
           href={`${process.env.DOMAIN}/collections/${id}`}
         />
       </Head>
-      <div className="px-2 px-md-5 py-3">
-        <Link href="/">
-          <a className={`${styles.backToHome}`}>
-            <IoIosArrowRoundBack size="1.875rem" />
-            Back to Home
-          </a>
-        </Link>
-      </div>
+      <HomeLink />
       <>
         <LightBox
           slide={imgIndex}
@@ -82,18 +75,13 @@ export default function CollectionContainer({ id }) {
       <div className="mb-4">
         {!_isEmpty(collectionData) ? (
           <>
-            <div className="text-center">
+            <div className="text-center px-3">
               <h4>
                 Collection title: <strong>{title}</strong>
               </h4>
             </div>
             <div className="text-center">
-              By:{" "}
-              <strong>
-                <Link href={`/user/${userObj.name}`}>
-                  <a>{userObj.name}</a>
-                </Link>
-              </strong>
+              By: <UserLink name={userObj.name} username={userObj.username} />
             </div>
           </>
         ) : (

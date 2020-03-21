@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaHeart } from "react-icons/fa";
 import Img from "react-cool-img";
 import _isEmpty from "lodash/isEmpty";
+import UserLink from "../UserLink";
 
 import { Card, Button } from "reactstrap";
 import styles from "./Card.css";
@@ -42,8 +42,7 @@ export default function CardComponent({
                 alt={photo.user.username}
                 debounce={1000}
               />
-              image
-              <p className={`${styles.photoUsername} m-0`}>{photo.user.name}</p>
+              <UserLink name={photo.user.name} username={photo.user.username} />
             </div>
             {!_isEmpty(photo.likes) && (
               <div className="d-flex align-items-center">

@@ -14,8 +14,7 @@ export default function Sidebar({ customClassName }) {
   const links = [
     { text: "Home", href: "/" },
     { text: "Collections", href: "/collections" },
-    { text: "About", href: "/about" },
-    { text: "Users", href: "/users" }
+    { text: "About", href: "/about" }
   ];
 
   return (

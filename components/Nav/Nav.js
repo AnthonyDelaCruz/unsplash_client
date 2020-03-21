@@ -42,12 +42,6 @@ const NavHeader = () => {
           <CustomLink
             customClassName={styles.navLinks}
             customActiveClassName={styles.active}
-            link={{ href: "/users", text: "Users" }}
-            active={"/users" === router.pathname}
-          />
-          <CustomLink
-            customClassName={styles.navLinks}
-            customActiveClassName={styles.active}
             link={{ href: "/collections", text: "Collections" }}
             active={"/collections" === router.pathname}
           />

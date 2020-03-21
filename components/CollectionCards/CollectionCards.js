@@ -22,7 +22,10 @@ export default function CollectionCards({ collection }) {
       </Link>
       <div className="text-left py-2">
         <p>
-          <UserLink name={collection.user.name} id={collection.user.id} />
+          <UserLink
+            name={collection.user.name}
+            username={collection.user.username}
+          />
         </p>
         {collection.tags.map(tag => (
           <Tags title={tag.title} />

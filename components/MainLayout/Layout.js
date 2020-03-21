@@ -31,7 +31,7 @@ export default function Layout({
             ${withOutSidebarComingSoon && styles.withOutSidebarContainer}
             ${styles.motionDiv}`}
           >
-            <MotionDiv variants={fadeIn} className="h-100">
+            <MotionDiv variants={fadeIn}>
               {children}
               {!withOutFooter && <Footer />}
             </MotionDiv>

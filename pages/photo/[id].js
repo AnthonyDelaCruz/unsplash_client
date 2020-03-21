@@ -5,17 +5,14 @@ import Moment from "react-moment";
 import Head from "next/head";
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
-import {
-  IoIosArrowRoundBack,
-  IoIosEye,
-  IoIosHeart,
-  IoIosCloudDownload
-} from "react-icons/io";
+import { IoIosEye, IoIosHeart, IoIosCloudDownload } from "react-icons/io";
 
 import Layout from "../../components/MainLayout";
 import CollectionCards from "../../components/CollectionCards";
 import Tags from "../../components/Tags";
 import MotionDiv from "../../components/MotionDiv";
+import HomeLink from "../../components/HomeLink";
+import UserLink from "../../components/UserLink";
 
 import { axiosInstance } from "../../config";
 import { fadeInFromBottom } from "../../utils/animations";
@@ -40,7 +37,8 @@ export default function Photo({ id }) {
     "Unsplash Photo"
   );
   const photoDescription = _get(photoDetails, "description");
-  const userName = _get(photoDetails, "user.name", "");
+  const name = _get(photoDetails, "user.name", "");
+  const username = _get(photoDetails, "user.username", "");
   const userAvatarUrl = _get(photoDetails, "user.profile_image.medium", "");
   const viewCount = _get(photoDetails, "views", 0);
   const likeCount = _get(photoDetails, "likes", 0);
@@ -72,14 +70,7 @@ export default function Photo({ id }) {
         />
         <meta property="og:url" content={`${process.env.DOMAIN}/photo/${id}`} />
       </Head>
-      <div className="px-2 px-md-5 py-3">
-        <Link href="/">
-          <a className={`${styles.backToHome}`}>
-            <IoIosArrowRoundBack size="1.875rem" />
-            Back to Home
-          </a>
-        </Link>
-      </div>
+      <HomeLink />
       {!_isEmpty(photoDetails) ? (
         <MotionDiv variants={fadeInFromBottom}>
           <div className="photo d-flex flex-column-reverse flex-md-row justify-content-md-center pt-md-5 pb-md-5 pt-sm-0">
@@ -91,9 +82,11 @@ export default function Photo({ id }) {
                   style={{ background: "black", height: "40px", width: "40px" }}
                   className="h-auto img img-fluid"
                   src={userAvatarUrl}
-                  alt={userName}
+                  alt={name}
                 />
-                <h3 className="mx-3 mb-0">{userName}</h3>
+                <h3 className="mx-3 mb-0">
+                  <UserLink name={name} username={username} />
+                </h3>
               </div>
               <div className="my-4 my-md-3 d-flex justify-content-between">
                 <div className="mx-1 d-flex align-items-center flex-column flex-md-row">

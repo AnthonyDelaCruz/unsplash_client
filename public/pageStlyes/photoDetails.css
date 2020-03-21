@@ -11,13 +11,3 @@
 .relatedSection {
   margin-top: 5rem;
 }
-
-.backToHome {
-  color: black;
-  font-size: 1rem;
-  text-decoration: none;
-}
-
-.backToHome:hover {
-  color: black;
-}
