@@ -22,6 +22,16 @@
   visibility: hidden;
 }
 
+.navHomeLink {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navHomeLink:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 768px) {
   .collapseContainer {
     visibility: visible;

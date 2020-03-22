@@ -1,5 +1,6 @@
 import { Collapse, Navbar, NavbarToggler, NavbarBrand } from "reactstrap";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { FaCameraRetro } from "react-icons/fa";
 import CustomLink from "../../components/Link";
 import { IoIosArrowRoundDown, IoIosArrowRoundUp } from "react-icons/io";
@@ -17,8 +18,12 @@ const NavHeader = () => {
       >
         <NavbarBrand>
           <h2 className="d-none d-md-block m-0">
-            Splash<span className={`${styles.grandientSpan}`}>Photography</span>
-            .
+            <Link href="/">
+              <a className={styles.navHomeLink}>
+                Splash
+                <span className={`${styles.grandientSpan}`}>Photography</span>.
+              </a>
+            </Link>
           </h2>
           <h2 className="d-sm-block d-md-none m-0">
             S<span className={`${styles.grandientSpan}`}>P</span>.
