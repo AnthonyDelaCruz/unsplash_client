@@ -38,18 +38,10 @@ export default function Sidebar({ customClassName }) {
         <p className={`${styles.follow} font-weight-bold text-center`}>
           Follow me here!
         </p>
-        <div className="d-flex  mx-md-5 justify-content-around">
+        <div className="d-flex  mx-md-5 justify-content-center">
           <a
             rel="noreferrer"
-            className={`${styles.socialLinks}`}
-            href="https://www.facebook.com/tonydc23"
-            target="_blank"
-          >
-            <FaFacebook size="30px" />
-          </a>
-          <a
-            rel="noreferrer"
-            className={`${styles.socialLinks}`}
+            className={`${styles.socialLinks} mx-2`}
             href="https://github.com/AnthonyDelaCruz"
             target="_blank"
           >
@@ -57,7 +49,7 @@ export default function Sidebar({ customClassName }) {
           </a>
           <a
             rel="noreferrer"
-            className={`${styles.socialLinks}`}
+            className={`${styles.socialLinks} mx-2`}
             href="https://www.linkedin.com/in/anthony-delacruz-956a97167/"
             target="_blank"
           >
