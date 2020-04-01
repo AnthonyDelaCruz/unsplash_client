@@ -42,7 +42,7 @@ export default function Sidebar({ customClassName }) {
           <a
             rel="noreferrer"
             className={`${styles.socialLinks} mx-2`}
-            href="https://github.com/AnthonyDelaCruz"
+            href="https://github.com/AnthonyDelaCruz/unsplash_client"
             target="_blank"
           >
             <FaGithub size="30px" />
