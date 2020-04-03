@@ -44,7 +44,7 @@ export default function CardComponent({
               />
               <UserLink name={photo.user.name} username={photo.user.username} />
             </div>
-            {!_isEmpty(photo.likes) && (
+            {photo.likes && (
               <div className="d-flex align-items-center">
                 <FaHeart />{" "}
                 <p className={`${styles.likes} mb-0 ml-2`}>{photo.likes}</p>

@@ -1,13 +1,33 @@
 import Img from "react-cool-img";
+
 import _get from "lodash/get";
+import _isEmpty from "lodash/isEmpty";
+import _map from "lodash/map";
+
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+
 import Layout from "../../components/MainLayout";
 import HomeLink from "../../components/HomeLink";
+import CardComponent from "../../components/Card";
+import CollectionCards from "../../components/CollectionCards";
+
 import { axiosInstance } from "../../config";
+import { useImageToggleHook } from "../../hooks";
 import styles from "./userPage.css";
+
+const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
+
+/**
+ * @TODO
+ * make links for view all photos and view all collections
+ */
 
 export default function UserProfile() {
   const [userInfo, setUserInfo] = React.useState({});
+  const [loading, setIsLoading] = React.useState(true);
+  const { toggleLightBox, imgIndex, isVisible } = useImageToggleHook();
   const router = useRouter();
   const {
     query: { username }
@@ -15,9 +35,28 @@ export default function UserProfile() {
 
   React.useEffect(() => {
     if (username) {
-      axiosInstance(`/users/${username}`).then(response => {
-        setUserInfo(response.data);
-      });
+      Promise.all([
+        axiosInstance(`/users/${username}`),
+        axiosInstance(`/users/${username}/collections`, {
+          params: { per_page: 3 }
+        }),
+        axiosInstance(`/users/${username}/photos`, {
+          params: {
+            per_page: 3
+          }
+        })
+      ])
+        .then(([user, userCollections, userPhotos]) => {
+          setUserInfo({
+            ...userInfo,
+            ...user.data,
+            userPhotos: userPhotos.data,
+            userCollections: userCollections.data
+          });
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   }, [router]);
 
@@ -31,9 +70,28 @@ export default function UserProfile() {
   const downloads = _get(userInfo, "downloads", 0);
   const portfolio = _get(userInfo, "portfolio_url", "Not specified.");
   const location = _get(userInfo, "location", "Not specified.");
+  const userPhotos = _get(userInfo, "userPhotos", []);
+  const userCollections = _get(userInfo, "userCollections", []);
 
+  const photoSourceUrls = _map(userPhotos, photo =>
+    _get(photo, "urls.small", "")
+  );
+
+  console.log("PHOTOS AND COLLECTIONS", {
+    loading,
+    userPhotos,
+    userCollections
+  });
   return (
     <Layout withOutSidebar>
+      <>
+        <LightBox
+          slide={imgIndex}
+          toggler={isVisible}
+          sources={photoSourceUrls}
+          key={photoSourceUrls}
+        />
+      </>
       <HomeLink />
       <div className={styles.userPageContainer}>
         <div className="container">
@@ -93,13 +151,75 @@ export default function UserProfile() {
               <h3>
                 <strong>Collections.</strong>
               </h3>
-              Coming soon.
+              {/* {!loading && !_isEmpty(userCollections) && (
+                <div className="my-2">
+                  <Link href="/">
+                    <a>See all collections.</a>
+                  </Link>
+                </div>
+              )} */}
+              {loading && (
+                <div className="text-center w-100">
+                  <h4>
+                    Fetching <strong>Collections</strong>...
+                  </h4>
+                </div>
+              )}
+              {!loading && !_isEmpty(userCollections) && (
+                <div className="d-flex">
+                  {userCollections.map((collection, i) => (
+                    <CollectionCards collection={collection} key={i} />
+                  ))}
+                </div>
+              )}
+              {!loading && _isEmpty(userCollections) && (
+                <div className="text-center my-4">
+                  <h4>
+                    User has no <strong>Collections</strong>...
+                  </h4>
+                </div>
+              )}
             </div>
             <div className="my-5">
               <h3>
                 <strong>Photos.</strong>
               </h3>
-              Coming soon.
+              {!loading && !_isEmpty(userPhotos) && (
+                <div className="my-2">
+                  <Link href="/">
+                    <a>See all photos.</a>
+                  </Link>
+                </div>
+              )}
+              <div className={`row ${styles.cardsColumnsContainer}`}>
+                {/* {loading && (
+                  <div className="text-center w-100">
+                    <h4>
+                      Fetching <strong>Photos</strong>...
+                    </h4>
+                  </div>
+                )} */}
+                {!loading &&
+                  !_isEmpty(userPhotos) &&
+                  userPhotos.map((photo, i) => {
+                    return (
+                      <div className="col-sm-1 col-md-4">
+                        <CardComponent
+                          photo={photo}
+                          toggleLightBox={() => toggleLightBox(i)}
+                          key={i}
+                        />
+                      </div>
+                    );
+                  })}
+                {!loading && _isEmpty(userPhotos) && (
+                  <div className="text-center w-100">
+                    <h4>
+                      User has no <strong>Photos</strong>...
+                    </h4>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

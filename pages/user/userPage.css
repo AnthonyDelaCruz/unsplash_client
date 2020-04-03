@@ -6,9 +6,16 @@
   padding: 0 7rem;
 }
 
+.cardsColumnsContainer {
+  column-gap: 0.5rem !important;
+}
+
 @media only screen and (max-width: 768px) {
   .infoContainer,
   .infoContainerLower {
     padding: 0 0.5rem;
+  }
+  .cardsColumnsContainer {
+    column-count: 1;
   }
 }

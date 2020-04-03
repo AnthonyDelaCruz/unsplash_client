@@ -10,7 +10,9 @@ export default function CollectionCards({ collection }) {
         <div>
           <div
             style={{
-              background: `url(${collection.cover_photo.urls.regular}) center center`
+              background:
+                collection.cover_photo &&
+                `url(${collection.cover_photo.urls.regular}) center center`
             }}
             className={`${styles.imageBackground} d-flex justify-content-center align-items-center my-2 my-md-0 px-3`}
           >
