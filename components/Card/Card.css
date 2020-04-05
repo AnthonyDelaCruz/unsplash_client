@@ -6,23 +6,8 @@
   background-color: #333333;
   height: 400px;
 }
-
-.cardImage:hover .cardInfo {
-  opacity: 1;
-}
-
-.cardInfo {
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  background: rgba(0, 0, 0, 0.5);
-  -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  top: 0;
-  left: 0;
-  position: absolute;
-  color: #ffffff;
+.cardImage:hover .cardPhoto {
+  filter: brightness(50%);
 }
 
 .avatar {
@@ -73,7 +58,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .cardImage:hover .cardInfo {
+  .cardImage:hover {
     opacity: 0;
   }
 }

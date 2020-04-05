@@ -10,7 +10,7 @@ import styles from "./Card.css";
 export default function CardComponent({
   toggleLightBox,
   photo,
-  customClassName
+  customClassName,
 }) {
   const router = useRouter();
   return (
@@ -23,7 +23,6 @@ export default function CardComponent({
             }}
             className="position-relative"
           >
-            <div className={styles.cardInfo} />
             <Img
               className={`${styles.cardPhoto} h-auto w-100 img-fluid`}
               src={photo.urls.small}
