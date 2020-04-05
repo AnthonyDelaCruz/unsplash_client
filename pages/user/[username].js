@@ -30,7 +30,7 @@ export default function UserProfile() {
   const { toggleLightBox, imgIndex, isVisible } = useImageToggleHook();
   const router = useRouter();
   const {
-    query: { username }
+    query: { username },
   } = router;
 
   React.useEffect(() => {
@@ -38,20 +38,20 @@ export default function UserProfile() {
       Promise.all([
         axiosInstance(`/users/${username}`),
         axiosInstance(`/users/${username}/collections`, {
-          params: { per_page: 3 }
+          params: { per_page: 3 },
         }),
         axiosInstance(`/users/${username}/photos`, {
           params: {
-            per_page: 3
-          }
-        })
+            per_page: 3,
+          },
+        }),
       ])
         .then(([user, userCollections, userPhotos]) => {
           setUserInfo({
             ...userInfo,
             ...user.data,
             userPhotos: userPhotos.data,
-            userCollections: userCollections.data
+            userCollections: userCollections.data,
           });
         })
         .finally(() => {
@@ -73,14 +73,14 @@ export default function UserProfile() {
   const userPhotos = _get(userInfo, "userPhotos", []);
   const userCollections = _get(userInfo, "userCollections", []);
 
-  const photoSourceUrls = _map(userPhotos, photo =>
+  const photoSourceUrls = _map(userPhotos, (photo) =>
     _get(photo, "urls.small", "")
   );
 
   console.log("PHOTOS AND COLLECTIONS", {
     loading,
     userPhotos,
-    userCollections
+    userCollections,
   });
   return (
     <Layout withOutSidebar>
