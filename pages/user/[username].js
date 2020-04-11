@@ -76,12 +76,6 @@ export default function UserProfile() {
   const photoSourceUrls = _map(userPhotos, (photo) =>
     _get(photo, "urls.small", "")
   );
-
-  console.log("PHOTOS AND COLLECTIONS", {
-    loading,
-    userPhotos,
-    userCollections,
-  });
   return (
     <Layout withOutSidebar>
       <>
@@ -151,13 +145,13 @@ export default function UserProfile() {
               <h3>
                 <strong>Collections.</strong>
               </h3>
-              {/* {!loading && !_isEmpty(userCollections) && (
+              {!loading && !_isEmpty(userCollections) && (
                 <div className="my-2">
-                  <Link href="/">
+                  <Link href={`/user/collections/${username}`}>
                     <a>See all collections.</a>
                   </Link>
                 </div>
-              )} */}
+              )}
               {loading && (
                 <div className="text-center w-100">
                   <h4>
@@ -166,7 +160,7 @@ export default function UserProfile() {
                 </div>
               )}
               {!loading && !_isEmpty(userCollections) && (
-                <div className="d-flex">
+                <div className="row">
                   {userCollections.map((collection, i) => (
                     <CollectionCards collection={collection} key={i} />
                   ))}
