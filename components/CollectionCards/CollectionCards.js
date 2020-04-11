@@ -6,13 +6,13 @@ import styles from "./CollectionCards.css";
 export default function CollectionCards({ collection }) {
   return (
     <div className="col-md-4 col-sm-12">
-      <Link href={`/collections/${collection.id}`}>
+      <Link href="/collections/[id]" as={`/collections/${collection.id}`}>
         <div>
           <div
             style={{
               background:
                 collection.cover_photo &&
-                `url(${collection.cover_photo.urls.regular}) center center`
+                `url(${collection.cover_photo.urls.regular}) center center`,
             }}
             className={`${styles.imageBackground} d-flex justify-content-center align-items-center my-2 my-md-0 px-3`}
           >
@@ -29,7 +29,7 @@ export default function CollectionCards({ collection }) {
             username={collection.user.username}
           />
         </p>
-        {collection.tags.map(tag => (
+        {collection.tags.map((tag) => (
           <Tags title={tag.title} />
         ))}
       </div>
