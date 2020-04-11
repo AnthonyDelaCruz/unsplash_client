@@ -14,7 +14,7 @@ export default function CardComponent({
 }) {
   const router = useRouter();
   return (
-    <Card className={`${customClassName} mb-2 mb-md-1`}>
+    <Card className={`${customClassName} mb-2`}>
       <div className={styles.cardImageContainer}>
         <div className={styles.cardImage}>
           <div
@@ -29,9 +29,48 @@ export default function CardComponent({
               alt={photo.alt_description}
               debounce={1000}
             />
+            <div
+              className={`${styles.userInfo} d-flex align-items-center justify-content-between p-2`}
+            >
+              <div className="d-flex align-items-center">
+                <Img
+                  style={{
+                    background: "#333333",
+                    height: "30px",
+                    width: "30px",
+                  }}
+                  className={`${styles.avatar} mr-2`}
+                  src={photo.user.profile_image.small}
+                  alt={photo.user.username}
+                  debounce={1000}
+                />
+                <UserLink
+                  customClassName={styles.cardUserLink}
+                  name={photo.user.name}
+                  username={photo.user.username}
+                />
+              </div>
+              {!!photo.likes && (
+                <div className="d-flex align-items-center">
+                  <FaHeart style={{ color: "#ff0015" }} />{" "}
+                  <p className={`${styles.likes} mb-0 ml-2`}>{photo.likes}</p>
+                </div>
+              )}
+            </div>
+          </div>
+          <div
+            className={`${styles.galleryBtnContainer} d-none d-md-block actions p-2 text-center mt-2`}
+          >
+            <Button
+              onClick={toggleLightBox}
+              outline
+              className={`${styles.galleryBtn}`}
+            >
+              Gallery View
+            </Button>
           </div>
         </div>
-        <div>
+        <div className="d-block d-md-none">
           <div className="d-flex align-items-center justify-content-between p-2">
             <div className="d-flex align-items-center">
               <Img
@@ -45,8 +84,10 @@ export default function CardComponent({
             </div>
             {!!photo.likes && (
               <div className="d-flex align-items-center">
-                <FaHeart />{" "}
-                <p className={`${styles.likes} mb-0 ml-2`}>{photo.likes}</p>
+                <FaHeart style={{ color: "#ff0015" }} />{" "}
+                <p className={`${styles.likesMobile} mb-0 ml-2`}>
+                  {photo.likes}
+                </p>
               </div>
             )}
           </div>

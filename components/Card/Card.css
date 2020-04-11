@@ -10,17 +10,36 @@
   filter: brightness(50%);
 }
 
+.cardImage:hover .userInfo {
+  visibility: visible;
+}
+.cardImage:hover .galleryBtnContainer {
+  visibility: visible;
+}
+
 .avatar {
   border-radius: 7px;
 }
 
 .likes {
   margin-top: 0.2rem;
+  color: #ffffff;
+}
+
+.likesMobile {
+  color: #333333;
+}
+.galleryBtnContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  visibility: hidden;
 }
 
 .galleryBtn {
   color: #ffffff;
-  background: #181818;
+  border: 1px solid #ffffff;
+  background: transparent;
   font-weight: 400;
 }
 
@@ -57,6 +76,16 @@
   width: 25px;
 }
 
+.userInfo {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.cardUserLink {
+  color: #ffffff;
+}
 @media only screen and (max-width: 768px) {
   .cardImage:hover {
     opacity: 0;
