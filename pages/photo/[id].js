@@ -7,25 +7,25 @@ import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 import { IoIosEye, IoIosHeart, IoIosCloudDownload } from "react-icons/io";
 
-import Layout from "../../components/MainLayout";
-import CollectionCards from "../../components/CollectionCards";
-import Tags from "../../components/Tags";
-import MotionDiv from "../../components/MotionDiv";
-import HomeLink from "../../components/HomeLink";
-import UserLink from "../../components/UserLink";
+import Layout from "components/MainLayout";
+import CollectionCards from "components/CollectionCards";
+import Tags from "components/Tags";
+import MotionDiv from "components/MotionDiv";
+import HomeLink from "components/HomeLink";
+import UserLink from "components/UserLink";
 
-import { axiosInstance } from "../../config";
-import { fadeInFromBottom } from "../../utils/animations";
+import { axiosInstance } from "config";
+import { fadeInFromBottom } from "utils/animations";
 
-import PhotoPageSkeleton from "../../components/Skeletons/PhotoPageSkeleton";
+import PhotoPageSkeleton from "components/Skeletons/PhotoPageSkeleton";
 
-import styles from "../../public/pageStlyes/photoDetails.css";
+import styles from "public/pageStlyes/photoDetails.css";
 
 export default function Photo({ id }) {
   const [photoDetails, setPhotoDetails] = React.useState({});
 
   React.useEffect(() => {
-    axiosInstance.get(`/photos/${id}`).then(response => {
+    axiosInstance.get(`/photos/${id}`).then((response) => {
       setPhotoDetails(response.data);
     });
   }, []);
@@ -133,7 +133,7 @@ export default function Photo({ id }) {
                     <>
                       <p>Tags</p>
                       <div>
-                        {tags.map(tag => (
+                        {tags.map((tag) => (
                           <Tags title={tag.title} />
                         ))}
                       </div>
@@ -174,6 +174,6 @@ export default function Photo({ id }) {
 
 Photo.getInitialProps = async ({ query }) => {
   return {
-    id: query.id
+    id: query.id,
   };
 };

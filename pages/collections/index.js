@@ -1,17 +1,17 @@
 import _isEmpty from "lodash/isEmpty";
 
-import Layout from "../../components/MainLayout";
-import MotionDiv from "../../components/MotionDiv";
-import CollectionCards from "../../components/CollectionCards";
+import Layout from "components/MainLayout";
+import MotionDiv from "components/MotionDiv";
+import CollectionCards from "components/CollectionCards";
 
-import { fadeInFromBottom } from "../../utils/animations";
-import { axiosInstance } from "../../config";
+import { fadeInFromBottom } from "utils/animations";
+import { axiosInstance } from "config";
 import styles from "./collections.css";
 
 export default function Gallery() {
   const [collections, setCollections] = React.useState([]);
   React.useEffect(() => {
-    axiosInstance.get("/collections").then(response => {
+    axiosInstance.get("/collections").then((response) => {
       setCollections(response.data);
     });
   }, []);

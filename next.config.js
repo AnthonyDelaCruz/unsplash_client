@@ -5,13 +5,12 @@ const withCSS = require("@zeit/next-css");
 module.exports = withCSS({
   cssModules: true,
   env: {
-    ACCESS_KEY: process.env.ACCESS_KEY,
+    ACCESS_KEY: "4R1BV8McLjiQT_GSQGzWp5ovnhWWxWA7Exhf4imVjtc",
     DOMAIN:
       process.env.NODE_ENV === "production"
         ? "http://unsplash-client.now.sh"
         : "http://localhost:3000",
-    FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,
-    APPLICATION_NAME: process.env.APPLICATION_NAME,
-    APPLICATION_NAME_SHORT: process.env.APPLICATION_NAME_SHORT
-  }
+    APPLICATION_NAME: "SplashPhotography",
+    APPLICATION_NAME_SHORT: "SP",
+  },
 });

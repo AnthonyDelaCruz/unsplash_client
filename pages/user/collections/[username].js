@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
 import _isEmpty from "lodash/isEmpty";
 import _get from "lodash/get";
-import Layout from "../../../components/MainLayout";
-import CollectionCards from "../../../components/CollectionCards";
-import HomeLink from "../../../components/HomeLink";
-import UserLink from "../../../components/UserLink";
-import { axiosInstance } from "../../../config";
+
+import Layout from "components/MainLayout";
+import CollectionCards from "components/CollectionCards";
+import HomeLink from "components/HomeLink";
+import UserLink from "components/UserLink";
+import { axiosInstance } from "config";
 
 export default function UserCollections() {
   const [user, setUser] = React.useState(null);

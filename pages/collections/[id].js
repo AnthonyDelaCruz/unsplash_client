@@ -8,17 +8,17 @@ import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 import _map from "lodash/map";
 
-import CardComponent, { CardSkeleton } from "../../components/Card";
-import Layout from "../../components/MainLayout";
-import MotionDiv from "../../components/MotionDiv";
-import HomeLink from "../../components/HomeLink";
-import UserLink from "../../components/UserLink";
-import { axiosInstance } from "../../config";
-import { useImageToggleHook } from "../../hooks";
-import { fadeInFromBottom } from "../../utils/animations";
+import CardComponent, { CardSkeleton } from "components/Card";
+import Layout from "components/MainLayout";
+import MotionDiv from "components/MotionDiv";
+import HomeLink from "components/HomeLink";
+import UserLink from "components/UserLink";
+import { axiosInstance } from "config";
+import { useImageToggleHook } from "hooks";
+import { fadeInFromBottom } from "utils/animations";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
-import styles from "../../public/pageStlyes/userCollection.css";
+import styles from "public/pageStlyes/userCollection.css";
 
 export default function CollectionContainer({ id }) {
   const [collectionData, setCollectionData] = React.useState({});
@@ -27,7 +27,7 @@ export default function CollectionContainer({ id }) {
 
   React.useEffect(() => {
     if (id) {
-      axiosInstance.get(`/collections/${id}`).then(data => {
+      axiosInstance.get(`/collections/${id}`).then((data) => {
         setCollectionData(data.data);
       });
     }
@@ -36,7 +36,7 @@ export default function CollectionContainer({ id }) {
   const title = _get(collectionData, "title", "");
   const previewPhotos = _get(collectionData, "preview_photos", []);
   const userObj = _get(collectionData, "user", {});
-  const photoSourceUrls = _map(previewPhotos, photo =>
+  const photoSourceUrls = _map(previewPhotos, (photo) =>
     _get(photo, "urls.small", "")
   );
 
@@ -97,8 +97,8 @@ export default function CollectionContainer({ id }) {
               const photoWithUserObj = {
                 ...photo,
                 user: {
-                  ...userObj
-                }
+                  ...userObj,
+                },
               };
               return (
                 <CardComponent
@@ -123,6 +123,6 @@ export default function CollectionContainer({ id }) {
 
 CollectionContainer.getInitialProps = async ({ query }) => {
   return {
-    id: query.id
+    id: query.id,
   };
 };

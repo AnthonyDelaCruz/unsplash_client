@@ -1,5 +1,5 @@
-import "../public/styles.css";
 import { AnimatePresence } from "framer-motion";
+import "public/styles.css";
 
 export default function MyApp({ Component, pageProps, router }) {
   return (

@@ -5,13 +5,13 @@ import _map from "lodash/map";
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 
-import CardComponent, { CardSkeleton } from "../components/Card";
-import Layout from "../components/MainLayout";
-import InfiniteScroll from "../components/InfiniteScroll";
+import CardComponent, { CardSkeleton } from "components/Card";
+import Layout from "components/MainLayout";
+import InfiniteScroll from "components/InfiniteScroll";
 
-import { axiosInstance } from "../config";
-import { useImageToggleHook } from "../hooks";
-import styles from "../public/pageStlyes/home.css";
+import { axiosInstance } from "config";
+import { useImageToggleHook } from "hooks";
+import styles from "public/pageStlyes/home.css";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 
@@ -22,7 +22,7 @@ const Home = () => {
 
   const { imgIndex, toggleLightBox, isVisible } = useImageToggleHook();
 
-  const photoSourceUrls = _map(photosArr, photo =>
+  const photoSourceUrls = _map(photosArr, (photo) =>
     _get(photo, "urls.small", "")
   );
 
@@ -31,7 +31,7 @@ const Home = () => {
       return setHasMore(false);
     } else {
       const response = await axiosInstance.get("/photos", {
-        params: { page: page, per_page: 10 }
+        params: { page: page, per_page: 10 },
       });
 
       setPhotos([...photosArr, ...response.data]);
@@ -42,9 +42,9 @@ const Home = () => {
   React.useEffect(() => {
     axiosInstance
       .get("/photos", {
-        params: { per_page: 10 }
+        params: { per_page: 10 },
       })
-      .then(response => {
+      .then((response) => {
         setPhotos([...photosArr, ...response.data]);
         setPage(page + 1);
       });

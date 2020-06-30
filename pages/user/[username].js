@@ -8,13 +8,13 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import Layout from "../../components/MainLayout";
-import HomeLink from "../../components/HomeLink";
-import CardComponent from "../../components/Card";
-import CollectionCards from "../../components/CollectionCards";
+import Layout from "components/MainLayout";
+import HomeLink from "components/HomeLink";
+import CardComponent from "components/Card";
+import CollectionCards from "components/CollectionCards";
 
-import { axiosInstance } from "../../config";
-import { useImageToggleHook } from "../../hooks";
+import { axiosInstance } from "config";
+import { useImageToggleHook } from "hooks";
 import styles from "./userPage.css";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
