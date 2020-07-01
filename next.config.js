@@ -1,8 +1,6 @@
 // require("dotenv").config();
 
-const withSass = require("@zeit/next-sass");
-
-module.exports = withSass({
+module.exports = {
   env: {
     ACCESS_KEY: "4R1BV8McLjiQT_GSQGzWp5ovnhWWxWA7Exhf4imVjtc",
     DOMAIN:
@@ -12,4 +10,4 @@ module.exports = withSass({
     APPLICATION_NAME: "SplashPhotography",
     APPLICATION_NAME_SHORT: "SP",
   },
-});
+};

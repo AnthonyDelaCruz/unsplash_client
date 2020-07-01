@@ -19,8 +19,6 @@ import { fadeInFromBottom } from "utils/animations";
 
 import PhotoPageSkeleton from "components/Skeletons/PhotoPageSkeleton";
 
-import styles from "public/pageStlyes/photoDetails.scss";
-
 export default function Photo({ id }) {
   const [photoDetails, setPhotoDetails] = React.useState({});
 

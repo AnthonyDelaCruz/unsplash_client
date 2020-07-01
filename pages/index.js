@@ -11,7 +11,6 @@ import InfiniteScroll from "components/InfiniteScroll";
 
 import { axiosInstance } from "config";
 import { useImageToggleHook } from "hooks";
-import styles from "public/pageStlyes/home.scss";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 
@@ -66,15 +65,15 @@ const Home = () => {
         />
         <link rel="canonical" href={`${process.env.DOMAIN}`} />
       </Head>
-      <>
+      {/* <>
         <LightBox
           slide={imgIndex}
           toggler={isVisible}
           sources={photoSourceUrls}
           key={photoSourceUrls}
         />
-      </>
-      <InfiniteScroll
+      </> */}
+      {/* <InfiniteScroll
         dataLength={photosArr.length}
         next={fetchData}
         hasMore={hasMore}
@@ -95,7 +94,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </InfiniteScroll>
+      </InfiniteScroll> */}
     </Layout>
   );
 };

@@ -4,7 +4,6 @@ import Sidebar from "../Sidebar";
 import Footer from "../Footer";
 
 import { fadeIn } from "../../utils/animations";
-import styles from "./Layout.scss";
 
 export default function Layout({
   children,
@@ -26,15 +25,15 @@ export default function Layout({
             />
           )}
           <div
-            className={`col-sm-12 p-0 
-            ${withOutSidebar ? "col-md-12" : "col-md-9"}
-            ${withOutSidebarComingSoon && styles.withOutSidebarContainer}
-            ${styles.motionDiv}`}
+          // className={`col-sm-12 p-0
+          // ${withOutSidebar ? "col-md-12" : "col-md-9"}
+          // ${withOutSidebarComingSoon && styles.withOutSidebarContainer}
+          // ${styles.motionDiv}`}
           >
-            <MotionDiv variants={fadeIn} className="h-100">
+            {/* <MotionDiv variants={fadeIn} className="h-100">
               {children}
               {!withOutFooter && <Footer />}
-            </MotionDiv>
+            </MotionDiv> */}
           </div>
         </div>
       </div>

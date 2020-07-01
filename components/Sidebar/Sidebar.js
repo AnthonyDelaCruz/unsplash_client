@@ -7,8 +7,6 @@ import { FaLinkedin } from "react-icons/fa";
 import { useRouter } from "next/router";
 import CustomLink from "../Link";
 
-import styles from "./Sidebar.scss";
-
 export default function Sidebar({ customClassName }) {
   const router = useRouter();
   const links = [
@@ -17,7 +15,7 @@ export default function Sidebar({ customClassName }) {
   ];
 
   return (
-    <div className={`${styles.sideBar} ${customClassName}`}>
+    <div className={`sideBar ${customClassName}`}>
       <IconContext.Provider value={{ className: "global-class-name" }}>
         <div className="d-flex flex-column align-items-center">
           <FaCameraRetro size="100px" />
@@ -34,13 +32,11 @@ export default function Sidebar({ customClassName }) {
         ))}
       </div>
       <div>
-        <p className={`${styles.follow} font-weight-bold text-center`}>
-          Follow me here!
-        </p>
+        <p className={`follow font-weight-bold text-center`}>Follow me here!</p>
         <div className="d-flex  mx-md-5 justify-content-center">
           <a
             rel="noreferrer"
-            className={`${styles.socialLinks} mx-2`}
+            className={`socialLinks mx-2`}
             href="https://github.com/AnthonyDelaCruz/unsplash_client"
             target="_blank"
           >
@@ -48,7 +44,7 @@ export default function Sidebar({ customClassName }) {
           </a>
           <a
             rel="noreferrer"
-            className={`${styles.socialLinks} mx-2`}
+            className={`socialLinks mx-2`}
             href="https://www.linkedin.com/in/anthony-delacruz-956a97167/"
             target="_blank"
           >

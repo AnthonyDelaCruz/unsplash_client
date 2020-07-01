@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./Link.scss";
 
 export default function CustomLink({
   link,
@@ -8,12 +7,12 @@ export default function CustomLink({
   customActiveClassName,
 }) {
   return (
-    <div className={`${styles.linkContainer} ${customClassName}`}>
+    <div className={`linkContainer ${customClassName}`}>
       <Link href={link.href}>
         <a
           className={`pb-2 font-weight-bold 
-            ${styles.linkItem} 
-            ${!customActiveClassName && active && styles.active}
+            linkItem
+            ${!customActiveClassName && active && "active"}
             ${active && customActiveClassName}`}
         >
           {link.text}

@@ -18,7 +18,6 @@ import { useImageToggleHook } from "hooks";
 import { fadeInFromBottom } from "utils/animations";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
-import styles from "public/pageStlyes/userCollection.scss";
 
 export default function CollectionContainer({ id }) {
   const [collectionData, setCollectionData] = React.useState({});

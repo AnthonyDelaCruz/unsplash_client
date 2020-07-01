@@ -1,6 +1,29 @@
+@import "./styles/pages/home.scss";
+@import "./styles/pages/photoDetails.scss";
+@import "./styles/pages/userCollection.scss";
+@import "./styles/pages/collections.scss";
+@import "./styles/pages/userPage.scss";
+
+@import "./styles/components/Nav.scss";
+@import "./styles/components/Card.scss";
+@import "./styles/components/CollectionCards.scss";
+@import "./styles/components/ComingSoon.scss";
+@import "./styles/components/Footer.scss";
+@import "./styles/components/Homelink.scss";
+@import "./styles/components/Link.scss";
+@import "./styles/components/Layout.scss";
+@import "./styles/components/Sidebar.scss";
+@import "./styles/components/Skeleton.scss";
+@import "./styles/components/Tag.scss";
+@import "./styles/components/Userlink.scss";
+
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: "Roboto", sans-serif;
-  height: 100%;
+  margin: 0;
 }
 
 .feature-photo {

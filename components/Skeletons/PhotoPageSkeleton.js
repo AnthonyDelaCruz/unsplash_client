@@ -1,5 +1,3 @@
-import styles from "./skeleton.scss";
-
 export default function PhotoPageSkeleton() {
   return (
     <div className="d-flex flex-column-reverse flex-md-row justify-content-md-center">

@@ -1,5 +1,3 @@
-import styles from "./tag.scss";
-
 /**
  * @TODO
  * Make tag page and apply it to Link
