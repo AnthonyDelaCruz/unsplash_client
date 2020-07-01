@@ -1,4 +1,4 @@
-import styles from "./skeleton.css";
+import styles from "./skeleton.scss";
 
 export default function PhotoPageSkeleton() {
   return (

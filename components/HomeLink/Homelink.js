@@ -1,6 +1,6 @@
 import { IoIosArrowRoundBack } from "react-icons/io";
 import Link from "next/link";
-import styles from "./homelink.css";
+import styles from "./homelink.scss";
 
 export default function Homelink() {
   return (

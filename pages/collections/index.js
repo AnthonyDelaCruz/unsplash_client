@@ -6,7 +6,7 @@ import CollectionCards from "components/CollectionCards";
 
 import { fadeInFromBottom } from "utils/animations";
 import { axiosInstance } from "config";
-import styles from "./collections.css";
+import styles from "./collections.scss";
 
 export default function Gallery() {
   const [collections, setCollections] = React.useState([]);

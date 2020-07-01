@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaCameraRetro } from "react-icons/fa";
 import CustomLink from "../../components/Link";
 import { IoIosArrowRoundDown, IoIosArrowRoundUp } from "react-icons/io";
-import styles from "./Nav.css";
+import styles from "./Nav.scss";
 
 const NavHeader = () => {
   const [isOpen, setIsOpen] = React.useState(false);

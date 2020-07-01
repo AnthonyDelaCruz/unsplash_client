@@ -1,11 +1,11 @@
 import Link from "next/link";
-import styles from "./Link.css";
+import styles from "./Link.scss";
 
 export default function CustomLink({
   link,
   active,
   customClassName,
-  customActiveClassName
+  customActiveClassName,
 }) {
   return (
     <div className={`${styles.linkContainer} ${customClassName}`}>

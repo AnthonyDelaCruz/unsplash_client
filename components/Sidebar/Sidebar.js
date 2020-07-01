@@ -7,7 +7,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { useRouter } from "next/router";
 import CustomLink from "../Link";
 
-import styles from "./Sidebar.css";
+import styles from "./Sidebar.scss";
 
 export default function Sidebar({ customClassName }) {
   const router = useRouter();

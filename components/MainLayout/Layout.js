@@ -4,13 +4,13 @@ import Sidebar from "../Sidebar";
 import Footer from "../Footer";
 
 import { fadeIn } from "../../utils/animations";
-import styles from "./Layout.css";
+import styles from "./Layout.scss";
 
 export default function Layout({
   children,
   withOutSidebar = false,
   withOutFooter = false,
-  withOutSidebarComingSoon
+  withOutSidebarComingSoon,
 }) {
   return (
     <div className="h-100">

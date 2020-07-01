@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Tags from "../../components/Tags";
 import UserLink from "../../components/UserLink";
-import styles from "./CollectionCards.css";
+import styles from "./CollectionCards.scss";
 
 export default function CollectionCards({ collection }) {
   return (

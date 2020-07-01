@@ -1,9 +1,8 @@
-require("dotenv").config();
+// require("dotenv").config();
 
-const withCSS = require("@zeit/next-css");
+const withSass = require("@zeit/next-sass");
 
-module.exports = withCSS({
-  cssModules: true,
+module.exports = withSass({
   env: {
     ACCESS_KEY: "4R1BV8McLjiQT_GSQGzWp5ovnhWWxWA7Exhf4imVjtc",
     DOMAIN:

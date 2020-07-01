@@ -15,7 +15,7 @@ import CollectionCards from "components/CollectionCards";
 
 import { axiosInstance } from "config";
 import { useImageToggleHook } from "hooks";
-import styles from "./userPage.css";
+import styles from "./userPage.scss";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 

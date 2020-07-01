@@ -5,7 +5,7 @@ import _isEmpty from "lodash/isEmpty";
 import UserLink from "../UserLink";
 
 import { Card, Button } from "reactstrap";
-import styles from "./Card.css";
+import styles from "./Card.scss";
 
 export default function CardComponent({
   toggleLightBox,

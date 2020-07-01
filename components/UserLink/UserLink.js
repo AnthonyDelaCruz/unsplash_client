@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./userlink.css";
+import styles from "./userlink.scss";
 
 export default function UserLink({ name, username, customClassName }) {
   return (

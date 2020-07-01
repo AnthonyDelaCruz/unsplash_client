@@ -11,7 +11,7 @@ import InfiniteScroll from "components/InfiniteScroll";
 
 import { axiosInstance } from "config";
 import { useImageToggleHook } from "hooks";
-import styles from "public/pageStlyes/home.css";
+import styles from "public/pageStlyes/home.scss";
 
 const LightBox = dynamic(() => import("fslightbox-react"), { ssr: false });
 

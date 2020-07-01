@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "framer-motion": "^1.10.2",
@@ -16,6 +17,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "next": "^9.4.4",
+    "node-sass": "^4.14.1",
     "react": "16.13.1",
     "react-cool-img": "^1.0.15",
     "react-dom": "16.13.1",
