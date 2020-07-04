@@ -16,13 +16,10 @@ export default function Gallery() {
   }, []);
   return (
     <Layout withOutSidebarComingSoon withOutFooter>
-      <div className="collectionContainer">
+      <div className="collection-container">
         <h1 className="text-center font-weight-bold my-5">Collections.</h1>
         {!_isEmpty(collections) ? (
-          <MotionDiv
-            variants={fadeInFromBottom}
-            className={`container row m-0`}
-          >
+          <MotionDiv variants={fadeInFromBottom} className="container row m-0">
             {collections.map((collection, i) => (
               <CollectionCards collection={collection} key={i} />
             ))}
