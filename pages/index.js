@@ -65,23 +65,21 @@ const Home = () => {
         />
         <link rel="canonical" href={`${process.env.DOMAIN}`} />
       </Head>
-      {/* <>
+      <>
         <LightBox
           slide={imgIndex}
           toggler={isVisible}
           sources={photoSourceUrls}
           key={photoSourceUrls}
         />
-      </> */}
-      {/* <InfiniteScroll
+      </>
+      <InfiniteScroll
         dataLength={photosArr.length}
         next={fetchData}
         hasMore={hasMore}
         scrollThreshold={1}
       >
-        <div
-          className={`p-2 card-columns h-100 ${styles.cardsColumnsContainer}`}
-        >
+        <div className={`p-2 card-columns h-100 cardsColumnsContainer`}>
           {_isEmpty(photosArr) &&
             [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => <CardSkeleton />)}
           {photosArr.map((photo, i) => (
@@ -94,7 +92,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </InfiniteScroll> */}
+      </InfiniteScroll>
     </Layout>
   );
 };

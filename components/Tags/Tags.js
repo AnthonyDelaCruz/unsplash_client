@@ -4,7 +4,7 @@
  */
 export default function Tag({ title }) {
   return (
-    <button className={`btn btn-outline-primary mr-1 mb-1 ${styles.tagLink}`}>
+    <button className="btn btn-outline-primary mr-1 mb-1 tagLink">
       {title}
     </button>
   );

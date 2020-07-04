@@ -14,8 +14,8 @@ export default function CardComponent({
   const router = useRouter();
   return (
     <Card className={`${customClassName} mb-2`}>
-      <div className={styles.cardImageContainer}>
-        <div className={styles.cardImage}>
+      <div className="container-card">
+        <div className="card__image">
           <div
             onClick={() => {
               router.push("/photo/[id]", `/photo/${photo.id}`);
@@ -23,14 +23,12 @@ export default function CardComponent({
             className="position-relative"
           >
             <Img
-              className={`${styles.cardPhoto} h-auto w-100 img-fluid`}
+              className="card__photo h-auto w-100 img-fluid"
               src={photo.urls.small}
               alt={photo.alt_description}
               debounce={1000}
             />
-            <div
-              className={`${styles.userInfo} d-flex align-items-center justify-content-between p-2`}
-            >
+            <div className="card__user-info d-flex align-items-center justify-content-between p-2">
               <div className="d-flex align-items-center">
                 <Img
                   style={{
@@ -38,32 +36,30 @@ export default function CardComponent({
                     height: "30px",
                     width: "30px",
                   }}
-                  className={`${styles.avatar} mr-2`}
+                  className="user-info__avatar mr-2"
                   src={photo.user.profile_image.small}
                   alt={photo.user.username}
                   debounce={1000}
                 />
                 <UserLink
-                  customClassName={styles.cardUserLink}
+                  customClassName="user-info__user-link"
                   name={photo.user.name}
                   username={photo.user.username}
                 />
               </div>
               {!!photo.likes && (
-                <div className="d-flex align-items-center">
+                <div className="user-info__container-likes d-flex align-items-center">
                   <FaHeart style={{ color: "#ff0015" }} />{" "}
-                  <p className={`${styles.likes} mb-0 ml-2`}>{photo.likes}</p>
+                  <p className="likes__like-count mb-0 ml-2">{photo.likes}</p>
                 </div>
               )}
             </div>
           </div>
-          <div
-            className={`${styles.galleryBtnContainer} d-none d-md-block actions p-2 text-center mt-2`}
-          >
+          <div className="image__gallery-btn-wrapper d-none d-md-block actions p-2 text-center mt-2">
             <Button
               onClick={toggleLightBox}
               outline
-              className={`${styles.galleryBtn}`}
+              className="gallery-btn-wrapper__button"
             >
               Gallery View
             </Button>
@@ -74,7 +70,7 @@ export default function CardComponent({
             <div className="d-flex align-items-center">
               <Img
                 style={{ background: "#333333", height: "30px", width: "30px" }}
-                className={`${styles.avatar} mr-2`}
+                className="avatar mr-2"
                 src={photo.user.profile_image.small}
                 alt={photo.user.username}
                 debounce={1000}
@@ -84,18 +80,14 @@ export default function CardComponent({
             {!!photo.likes && (
               <div className="d-flex align-items-center">
                 <FaHeart style={{ color: "#ff0015" }} />{" "}
-                <p className={`${styles.likesMobile} mb-0 ml-2`}>
+                <p className="user-info__likes-mobile mb-0 ml-2">
                   {photo.likes}
                 </p>
               </div>
             )}
           </div>
           <div className="d-none d-md-block actions p-2 text-center mt-2">
-            <Button
-              onClick={toggleLightBox}
-              outline
-              className={`${styles.galleryBtn}`}
-            >
+            <Button onClick={toggleLightBox} outline className="galleryBtn">
               Gallery View
             </Button>
           </div>
@@ -107,15 +99,15 @@ export default function CardComponent({
 
 export const CardSkeleton = () => {
   return (
-    <Card className={`w-100 d-flex flex-column justify-content-between`}>
-      <div className={styles.imageSkeleton}></div>
+    <Card className="w-100 d-flex flex-column justify-content-between">
+      <div className="imageSkeleton"></div>
       <div className="p-2 d-flex justify-content-between">
         <div className="d-flex align-items-center">
-          <div className={styles.avatarSkeleton}></div>
-          <div className={`mx-2 ${styles.usernameSkeleton}`}></div>
+          <div className="avatarSkeleton"></div>
+          <div className="mx-2 usernameSkeleton"></div>
         </div>
         <div className="d-flex align-items-center">
-          <div className={styles.likeSkeleton}></div>
+          <div className="likeSkeleton"></div>
         </div>
       </div>
     </Card>

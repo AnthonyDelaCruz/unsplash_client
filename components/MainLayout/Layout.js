@@ -25,15 +25,15 @@ export default function Layout({
             />
           )}
           <div
-          // className={`col-sm-12 p-0
-          // ${withOutSidebar ? "col-md-12" : "col-md-9"}
-          // ${withOutSidebarComingSoon && styles.withOutSidebarContainer}
-          // ${styles.motionDiv}`}
+            className={`col-sm-12 p-0
+          ${withOutSidebar ? "col-md-12" : "col-md-9"}
+          ${withOutSidebarComingSoon && "withOutSidebarContainer"}
+          motionDiv`}
           >
-            {/* <MotionDiv variants={fadeIn} className="h-100">
+            <MotionDiv variants={fadeIn} className="h-100">
               {children}
               {!withOutFooter && <Footer />}
-            </MotionDiv> */}
+            </MotionDiv>
           </div>
         </div>
       </div>

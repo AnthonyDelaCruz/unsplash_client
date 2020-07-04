@@ -1,6 +1,8 @@
+@import "../../vars.scss";
+
 .cardsColumnsContainer {
   column-gap: 0.5rem !important;
-  background: #eaeaea;
+  background: $light-gray;
 }
 
 @media only screen and (max-width: 768px) {

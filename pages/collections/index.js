@@ -16,7 +16,7 @@ export default function Gallery() {
   }, []);
   return (
     <Layout withOutSidebarComingSoon withOutFooter>
-      <div className={`${styles.collectionContainer}`}>
+      <div className="collectionContainer">
         <h1 className="text-center font-weight-bold my-5">Collections.</h1>
         {!_isEmpty(collections) ? (
           <MotionDiv

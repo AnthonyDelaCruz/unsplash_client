@@ -1,29 +1,29 @@
-.avatarSkeleton {
+.skeleton_avatar {
   height: 50px;
   width: 50px;
-  background: #333333;
+  background: $dark-gray;
 }
 
-.usernameSkeleton {
+.skeleton_username {
   height: 40px;
   width: 300px;
-  background: #333333;
+  background: $dark-gray;
 }
 
-.featuredPhotoSkeleton {
+.skeleton_featured-photo {
   width: 400px;
   height: 400px;
-  background: #333333;
+  background: $dark-gray;
 }
 
-.photoData {
+.skeleton_photo-data {
   height: 30px;
   width: 100px;
-  background: #333333;
+  background: $dark-gray;
 }
 
-.dateSkeleton {
+.skeleton_date {
   height: 30px;
   width: 200px;
-  background: #333333;
+  background: $dark-gray;
 }

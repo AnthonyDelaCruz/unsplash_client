@@ -13,7 +13,7 @@ export default function CollectionCards({ collection }) {
                 collection.cover_photo &&
                 `url(${collection.cover_photo.urls.regular}) center center`,
             }}
-            className={`${styles.imageBackground} d-flex justify-content-center align-items-center my-2 my-md-0 px-3`}
+            className="imageBackground d-flex justify-content-center align-items-center my-2 my-md-0 px-3"
           >
             <h4 className="text-align-left font-weight-bold">
               {collection.title}

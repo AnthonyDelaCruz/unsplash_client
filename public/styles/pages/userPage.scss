@@ -1,21 +1,18 @@
-.userPageContainer {
-}
-
-.infoContainer,
-.infoContainerLower {
-  padding: 0 7rem;
-}
-
-.cardsColumnsContainer {
-  column-gap: 0.5rem !important;
-}
-
-@media only screen and (max-width: 768px) {
-  .infoContainer,
-  .infoContainerLower {
-    padding: 0 0.5rem;
+.container_user-page {
+  .user-page__info-container,
+  .user-page__info-container--lower {
+    padding: 0 7rem;
   }
-  .cardsColumnsContainer {
-    column-count: 1;
+  .user-page__card-columns {
+    column-gap: 0.5rem !important;
+  }
+  @media only screen and (max-width: 768px) {
+    .user-page__info-container,
+    .user-page__info-container--lower {
+      padding: 0 0.5rem;
+    }
+    .user-page__card-columns {
+      column-count: 1;
+    }
   }
 }

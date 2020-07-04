@@ -1,51 +1,83 @@
-.cardImage {
-  cursor: zoom-in;
-}
+.container-card {
+  .card__image {
+    cursor: zoom-in;
 
-.cardPhoto {
-  background-color: #333333;
-  height: 400px;
-}
-.cardImage:hover .cardPhoto {
-  filter: brightness(50%);
-}
+    .image__gallery-btn-wrapper {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      visibility: hidden;
+      border: 2px solid red;
+      .gallery-btn-wrapper__button {
+        color: $white;
+        background: $grandient;
+        font-weight: 400;
+        transition: all 0.3s;
+        transform: translateY(20px);
+        opacity: 0;
 
-.cardImage:hover .userInfo {
-  visibility: visible;
-}
-.cardImage:hover .galleryBtnContainer {
-  visibility: visible;
-}
+        &:hover {
+          background: $white;
+          color: #181818;
+        }
+      }
+    }
 
-.avatar {
-  border-radius: 7px;
-}
+    &:hover {
+      .card__user-info,
+      .card__photo {
+        visibility: visible;
+      }
 
-.likes {
-  margin-top: 0.2rem;
-  color: #ffffff;
-}
+      .user-info__container-likes,
+      .user-info__avatar {
+        visibility: visible;
+        transform: translateX(0);
+        opacity: 1;
+      }
+      .gallery-btn-wrapper__button {
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+  .card__photo {
+    background-color: $dark-gray;
+    height: 400px;
+  }
+  .card__user-info {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-image: linear-gradient(to top, transparent, $black);
 
-.likesMobile {
-  color: #333333;
-}
-.galleryBtnContainer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  visibility: hidden;
-}
+    .user-info__avatar {
+      transition: all 0.5s;
+      transform: translateX(-15px);
+      opacity: 0;
+      border-radius: 7px;
+    }
+    .user-info__container-likes {
+      transition: all 0.5s;
+      transform: translateX(15px);
+      opacity: 0;
 
-.galleryBtn {
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  background: transparent;
-  font-weight: 400;
-}
-
-.galleryBtn:hover {
-  background: #ffffff;
-  color: #181818;
+      .likes__like-count {
+        margin-top: 0.2rem;
+        color: $white;
+        transition: all 0.5s;
+        transform: transitionX(20px);
+      }
+    }
+    .user-info__user-link {
+      color: $white;
+    }
+    .user-info__likes-mobile {
+      color: $dark-gray;
+    }
+  }
 }
 
 .photoUsername {
@@ -55,37 +87,27 @@
 /* skeleton css */
 .imageSkeleton {
   height: 300px;
-  background: #333333;
+  background: $dark-gray;
 }
 
 .avatarSkeleton {
-  background: #333333;
+  background: $dark-gray;
   height: 40px;
   width: 40px;
 }
 
 .usernameSkeleton {
-  background: #333333;
+  background: $dark-gray;
   height: 30px;
   width: 150px;
 }
 
 .likeSkeleton {
-  background: #333333;
+  background: $dark-gray;
   height: 25px;
   width: 25px;
 }
 
-.userInfo {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.cardUserLink {
-  color: #ffffff;
-}
 @media only screen and (max-width: 768px) {
   .cardImage:hover {
     opacity: 0;

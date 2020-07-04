@@ -89,9 +89,7 @@ export default function CollectionContainer({ id }) {
       </div>
       {!_isEmpty(previewPhotos) ? (
         <MotionDiv variants={fadeInFromBottom}>
-          <div
-            className={`${styles.cardsColumnsContainer} container card-columns mb-5`}
-          >
+          <div className="card-columns container card-columns mb-5">
             {previewPhotos.map((photo, i) => {
               const photoWithUserObj = {
                 ...photo,

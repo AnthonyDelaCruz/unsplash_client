@@ -1,9 +1,8 @@
-.backToHome {
-  color: black;
+.home-link {
+  color: $black;
   font-size: 1rem;
   text-decoration: none;
-}
-
-.backToHome:hover {
-  color: black;
+  &:hover {
+    color: $black;
+  }
 }

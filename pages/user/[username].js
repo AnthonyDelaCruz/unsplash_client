@@ -86,7 +86,7 @@ export default function UserProfile() {
         />
       </>
       <HomeLink />
-      <div className={styles.userPageContainer}>
+      <div className="container_user-page">
         <div className="container">
           <div className="my-5 text-center">
             <Img
@@ -96,9 +96,7 @@ export default function UserProfile() {
             />
             <h2 className="mt-4">{name}</h2>
             <h4 className="text-muted">{username}</h4>
-            <div
-              className={`d-flex flex-wrap justify-content-center justify-content-md-around mt-3 my-md-3 ${styles.infoContainer}`}
-            >
+            <div className="d-flex flex-wrap justify-content-center justify-content-md-around mt-3 my-md-3 user-page__info-container">
               <div className="my-1 mr-3 mr-md-0 my-md-0">
                 <strong>Collections: </strong>
                 {totalCollections}
@@ -124,9 +122,7 @@ export default function UserProfile() {
                 {downloads}
               </div>
             </div>
-            <div
-              className={`d-flex flex-wrap justify-content-center my-md-3 ${styles.infoContainerLower}`}
-            >
+            <div className="d-flex flex-wrap justify-content-center my-md-3 user-page__info-container--lower">
               <div className="mr-3 my-1 my-md-0">
                 <strong>Location: </strong>
                 {location || "Not specified."}
@@ -184,7 +180,7 @@ export default function UserProfile() {
                   </Link>
                 </div>
               )}
-              <div className={`row ${styles.cardsColumnsContainer}`}>
+              <div className="row user-page__card-columns">
                 {/* {loading && (
                   <div className="text-center w-100">
                     <h4>

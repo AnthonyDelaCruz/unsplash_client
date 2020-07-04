@@ -1,5 +1,7 @@
+@import "../../vars.scss";
+
 .navbarContainer {
-  color: #ffffff;
+  color: $white;
   min-height: 60px;
   position: sticky;
   top: 0;
@@ -12,7 +14,7 @@
 
   .gradientSpan {
     font-weight: bold;
-    background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+    background: $grandient;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -21,11 +23,11 @@
     visibility: hidden;
   }
   .navHomeLink {
-    color: #ffffff;
+    color: $white;
     text-decoration: none;
 
     &:hover {
-      color: #ffffff;
+      color: $white;
       text-decoration: none;
     }
   }
@@ -40,15 +42,15 @@
       margin: 1.5rem 0;
       font-size: 1rem;
       a {
-        color: #ffffff !important;
+        color: $white !important;
       }
     }
 
     .active {
       padding: 10px !important;
-      color: #ffffff;
+      color: $white;
       border-radius: 5px;
-      background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+      background: $grandient;
     }
   }
 }

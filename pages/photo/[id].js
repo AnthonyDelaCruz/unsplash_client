@@ -72,9 +72,7 @@ export default function Photo({ id }) {
       {!_isEmpty(photoDetails) ? (
         <MotionDiv variants={fadeInFromBottom}>
           <div className="photo d-flex flex-column-reverse flex-md-row justify-content-md-center pt-md-5 pb-md-5 pt-sm-0">
-            <div
-              className={`${styles.infoSectionContainer} mt-4 mt-md-0 px-3 px-md-5`}
-            >
+            <div className="container_info-section mt-4 mt-md-0 px-3 px-md-5">
               <div className="d-flex align-items-center info-section">
                 <Img
                   style={{ background: "black", height: "40px", width: "40px" }}
@@ -153,7 +151,7 @@ export default function Photo({ id }) {
       ) : (
         <PhotoPageSkeleton />
       )}
-      <div className={`${styles.relatedSection} text-center my-5`}>
+      <div className="related-section text-center my-5">
         <h3>
           Related <span className="font-weight-bold">Collections.</span>
         </h3>
