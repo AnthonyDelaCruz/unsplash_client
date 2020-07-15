@@ -1,5 +1,6 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import _map from "lodash/map";
 import _get from "lodash/get";
@@ -7,7 +8,7 @@ import _isEmpty from "lodash/isEmpty";
 
 import CardComponent, { CardSkeleton } from "components/Card";
 import Layout from "components/MainLayout";
-import InfiniteScroll from "components/InfiniteScroll";
+// import InfiniteScroll from "components/InfiniteScroll";
 
 import { axiosInstance } from "config";
 import { useImageToggleHook } from "hooks";
@@ -29,12 +30,14 @@ const Home = () => {
     if (photosArr.length === 30) {
       return setHasMore(false);
     } else {
-      const response = await axiosInstance.get("/photos", {
-        params: { page: page, per_page: 10 },
-      });
+      setTimeout(async () => {
+        const response = await axiosInstance.get("/photos", {
+          params: { page: page + 1, per_page: 10 },
+        });
 
-      setPhotos([...photosArr, ...response.data]);
-      setPage(page + 1);
+        setPhotos([...photosArr, ...response.data]);
+        setPage(page + 1);
+      }, 1000);
     }
   };
 
@@ -77,19 +80,20 @@ const Home = () => {
         dataLength={photosArr.length}
         next={fetchData}
         hasMore={hasMore}
-        scrollThreshold={1}
+        loader={<h4 className="d-block">Fetching images!</h4>}
+        endMessage={<h1 className="d-block">You have seen them all!</h1>}
       >
-        <div className={`p-2 card-columns h-100 cardsColumnsContainer`}>
-          {_isEmpty(photosArr) &&
-            [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => <CardSkeleton />)}
+        <div className="card-columns p-2 cardsColumnsContainer">
           {photosArr.map((photo, i) => (
-            <div>
-              <CardComponent
-                photo={photo}
-                toggleLightBox={() => toggleLightBox(i)}
-                key={i}
-              />
-            </div>
+            // <div>
+            //   <h1>SOMETHING</h1>
+            //   <h2>SOMETHING</h2>
+            // </div>
+            <CardComponent
+              photo={photo}
+              toggleLightBox={() => toggleLightBox(i)}
+              key={i}
+            />
           ))}
         </div>
       </InfiniteScroll>

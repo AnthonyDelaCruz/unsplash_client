@@ -5,29 +5,26 @@ import _isEmpty from "lodash/isEmpty";
 import UserLink from "../UserLink";
 
 import { Card, Button } from "reactstrap";
+import LazyImage from "../LazyImage";
 
 export default function CardComponent({
   toggleLightBox,
   photo,
   customClassName,
 }) {
+  const imageRef = React.useRef(null);
   const router = useRouter();
+
   return (
-    <Card className={`${customClassName} mb-2`}>
-      <div className="container-card">
+    <div className="container-card">
+      <Card className={`${customClassName} mb-2`}>
         <div className="card__image">
           <div
             onClick={() => {
               router.push("/photo/[id]", `/photo/${photo.id}`);
             }}
-            className="position-relative"
           >
-            <Img
-              className="card__photo h-auto w-100 img-fluid"
-              src={photo.urls.small}
-              alt={photo.alt_description}
-              debounce={1000}
-            />
+            <LazyImage reference={imageRef} src={photo.urls.small} />
             <div className="card__user-info d-flex align-items-center justify-content-between p-2">
               <div className="d-flex align-items-center">
                 <Img
@@ -92,8 +89,8 @@ export default function CardComponent({
             </Button>
           </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 }
 
