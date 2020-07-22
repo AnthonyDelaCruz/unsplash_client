@@ -1,7 +1,7 @@
-import MotionDiv from "../MotionDiv";
-import Nav from "../Nav/Nav";
-import Sidebar from "../Sidebar";
-import Footer from "../Footer";
+import MotionDiv from "components/MotionDiv";
+import Nav from "components/Nav";
+import Sidebar from "components/Sidebar";
+import Footer from "components/Footer";
 
 import { fadeIn } from "../../utils/animations";
 
