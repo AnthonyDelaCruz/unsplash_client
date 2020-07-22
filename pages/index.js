@@ -87,17 +87,13 @@ const Home = () => {
           hasMore={hasMore}
         >
           <div className="card-columns p-2 cardsColumnsContainer">
-            {_isEmpty(photosArr) ? (
-              photosArr.map((photo, i) => (
-                <CardComponent
-                  photo={photo}
-                  toggleLightBox={() => toggleLightBox(i)}
-                  key={i}
-                />
-              ))
-            ) : (
-              <div>SOMETHIN</div>
-            )}
+            {photosArr.map((photo, i) => (
+              <CardComponent
+                photo={photo}
+                toggleLightBox={() => toggleLightBox(i)}
+                key={i}
+              />
+            ))}
           </div>
         </InfiniteScroll>
       )}
