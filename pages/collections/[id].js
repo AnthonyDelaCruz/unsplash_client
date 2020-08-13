@@ -70,50 +70,52 @@ export default function CollectionContainer({ id }) {
           key={photoSourceUrls}
         />
       </>
-      <h1 className="text-center font-weight-bold mb-5">Collections.</h1>
-      <div className="mb-4">
-        {!_isEmpty(collectionData) ? (
-          <>
-            <div className="text-center px-3">
-              <h4>
-                Collection title: <strong>{title}</strong>
-              </h4>
+      <div style={{ minHeight: "calc(100vh - 180px)" }}>
+        <h1 className="text-center font-weight-bold mb-5">Collections.</h1>
+        <div className="mb-4">
+          {!_isEmpty(collectionData) ? (
+            <>
+              <div className="text-center px-3">
+                <h4>
+                  Collection title: <strong>{title}</strong>
+                </h4>
+              </div>
+              <div className="text-center">
+                By: <UserLink name={userObj.name} username={userObj.username} />
+              </div>
+            </>
+          ) : (
+            <div className="text-center">Loading collection info...</div>
+          )}
+        </div>
+        {!_isEmpty(previewPhotos) ? (
+          <MotionDiv variants={fadeInFromBottom}>
+            <div className="card-columns container card-columns mb-5">
+              {previewPhotos.map((photo, i) => {
+                const photoWithUserObj = {
+                  ...photo,
+                  user: {
+                    ...userObj,
+                  },
+                };
+                return (
+                  <CardComponent
+                    toggleLightBox={() => toggleLightBox(i)}
+                    key={i}
+                    photo={photoWithUserObj}
+                  />
+                );
+              })}
             </div>
-            <div className="text-center">
-              By: <UserLink name={userObj.name} username={userObj.username} />
-            </div>
-          </>
+          </MotionDiv>
         ) : (
-          <div className="text-center">Loading collection info...</div>
+          <div className="container card-columns my-5">
+            {_map([1, 2, 3], () => (
+              <CardSkeleton />
+            ))}
+          </div>
         )}
       </div>
-      {!_isEmpty(previewPhotos) ? (
-        <MotionDiv variants={fadeInFromBottom}>
-          <div className="card-columns container card-columns mb-5">
-            {previewPhotos.map((photo, i) => {
-              const photoWithUserObj = {
-                ...photo,
-                user: {
-                  ...userObj,
-                },
-              };
-              return (
-                <CardComponent
-                  toggleLightBox={() => toggleLightBox(i)}
-                  key={i}
-                  photo={photoWithUserObj}
-                />
-              );
-            })}
-          </div>
-        </MotionDiv>
-      ) : (
-        <div className="container card-columns my-5">
-          {_map([1, 2, 3], () => (
-            <CardSkeleton />
-          ))}
-        </div>
-      )}
     </Layout>
   );
 }
