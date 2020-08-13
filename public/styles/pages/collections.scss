@@ -1,6 +1,6 @@
 .collection-container {
+  max-height: calc(100vh - 60px);
   overflow: scroll;
-  max-height: 100%;
   .collection-list {
     max-width: 100%;
   }
