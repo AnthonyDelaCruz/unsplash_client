@@ -29,6 +29,15 @@ body {
   margin: 0;
 }
 
+.infinite-scroll-component {
+  width: 100%;
+}
+.infinite-scroll-component__outerdiv {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .feature-photo {
   border-radius: 8px;
 }

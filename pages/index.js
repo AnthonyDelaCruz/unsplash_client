@@ -62,7 +62,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout withOutFooter>
       <MetaTags />
       <LightBox
         slide={imgIndex}

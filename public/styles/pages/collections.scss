@@ -1,4 +1,7 @@
 .collection-container {
   overflow: scroll;
   max-height: 100%;
+  .collection-list {
+    max-width: 100%;
+  }
 }

@@ -12,7 +12,7 @@ export default function Layout({
   withOutSidebarComingSoon,
 }) {
   return (
-    <div className="h-100">
+    <div>
       <Nav />
       <div className="container-fluid">
         <div className="row">
@@ -25,12 +25,12 @@ export default function Layout({
             />
           )}
           <div
-            className={`col-sm-12 p-0
+            className={`col-sm-12 p-0 content-row
           ${withOutSidebar ? "col-md-12" : "col-md-9"}
           ${withOutSidebarComingSoon && "withOutSidebarContainer"}
-          motionDiv`}
+          `}
           >
-            <MotionDiv variants={fadeIn} className="h-100">
+            <MotionDiv variants={fadeIn}>
               {children}
               {!withOutFooter && <Footer />}
             </MotionDiv>
