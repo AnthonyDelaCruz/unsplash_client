@@ -86,128 +86,130 @@ export default function UserProfile() {
         />
       </>
       <HomeLink />
-      <div className="container_user-page">
-        <div className="container">
-          <div className="my-5 text-center">
-            <Img
-              style={{ background: "#333333", height: "140px", width: "" }}
-              src={profileImage}
-              alt={username}
-            />
-            <h2 className="mt-4">{name}</h2>
-            <h4 className="text-muted">{username}</h4>
-            <div className="d-flex flex-wrap justify-content-center justify-content-md-around mt-3 my-md-3 user-page__info-container">
-              <div className="my-1 mr-3 mr-md-0 my-md-0">
-                <strong>Collections: </strong>
-                {totalCollections}
-              </div>
-              <div className="d-none d-md-block">|</div>
-              <div className="my-1 mr-3 mr-md-0 my-md-0">
-                <strong>Photos: </strong>
-                {totalPhotos}
-              </div>
-              <div className="d-none d-md-block">|</div>
-              <div className="my-1 mr-3 mr-md-0 my-md-0">
-                <strong>Followers: </strong>
-                {followers}
-              </div>
-              <div className="d-none d-md-block">|</div>
-              <div className="my-1 mr-3 mr-md-0 my-md-0">
-                <strong>Following: </strong>
-                {following}
-              </div>
-              <div className="d-none d-md-block">|</div>
-              <div className="my-1 my-md-0">
-                <strong>Downloads: </strong>
-                {downloads}
-              </div>
-            </div>
-            <div className="d-flex flex-wrap justify-content-center my-md-3 user-page__info-container--lower">
-              <div className="mr-3 my-1 my-md-0">
-                <strong>Location: </strong>
-                {location || "Not specified."}
-              </div>
-              <div className="d-none d-md-block">|</div>
-              <div className="mx-md-3">
-                <strong>Portfolio URL: </strong>
-                <a href={portfolio} target="_blank" rel="noreferrer">
-                  {portfolio || "Not specified."}
-                </a>
-              </div>
-            </div>
-            <div className="my-3 my-md-5 px-3 text-muted">{bio}</div>
-            <div className="my-5">
-              <h3>
-                <strong>Collections.</strong>
-              </h3>
-              {!loading && !_isEmpty(userCollections) && (
-                <div className="my-2">
-                  <Link href={`/user/collections/${username}`}>
-                    <a>See all collections.</a>
-                  </Link>
+      <div stlye={{ minHeight: "calc(100vh - 180px)" }}>
+        <div className="container_user-page">
+          <div className="container">
+            <div className="my-5 text-center">
+              <Img
+                style={{ background: "#333333", height: "140px", width: "" }}
+                src={profileImage}
+                alt={username}
+              />
+              <h2 className="mt-4">{name}</h2>
+              <h4 className="text-muted">{username}</h4>
+              <div className="d-flex flex-wrap justify-content-center justify-content-md-around mt-3 my-md-3 user-page__info-container">
+                <div className="my-1 mr-3 mr-md-0 my-md-0">
+                  <strong>Collections: </strong>
+                  {totalCollections}
                 </div>
-              )}
-              {loading && (
-                <div className="text-center w-100">
-                  <h4>
-                    Fetching <strong>Collections</strong>...
-                  </h4>
+                <div className="d-none d-md-block">|</div>
+                <div className="my-1 mr-3 mr-md-0 my-md-0">
+                  <strong>Photos: </strong>
+                  {totalPhotos}
                 </div>
-              )}
-              {!loading && !_isEmpty(userCollections) && (
-                <div className="row">
-                  {userCollections.map((collection, i) => (
-                    <CollectionCards collection={collection} key={i} />
-                  ))}
+                <div className="d-none d-md-block">|</div>
+                <div className="my-1 mr-3 mr-md-0 my-md-0">
+                  <strong>Followers: </strong>
+                  {followers}
                 </div>
-              )}
-              {!loading && _isEmpty(userCollections) && (
-                <div className="text-center my-4">
-                  <h4>
-                    User has no <strong>Collections</strong>...
-                  </h4>
+                <div className="d-none d-md-block">|</div>
+                <div className="my-1 mr-3 mr-md-0 my-md-0">
+                  <strong>Following: </strong>
+                  {following}
                 </div>
-              )}
-            </div>
-            <div className="my-5">
-              <h3>
-                <strong>Photos.</strong>
-              </h3>
-              {!loading && !_isEmpty(userPhotos) && (
-                <div className="my-2">
-                  <Link href="/">
-                    <a>See all photos.</a>
-                  </Link>
+                <div className="d-none d-md-block">|</div>
+                <div className="my-1 my-md-0">
+                  <strong>Downloads: </strong>
+                  {downloads}
                 </div>
-              )}
-              <div className="row user-page__card-columns">
-                {/* {loading && (
+              </div>
+              <div className="d-flex flex-wrap justify-content-center my-md-3 user-page__info-container--lower">
+                <div className="mr-3 my-1 my-md-0">
+                  <strong>Location: </strong>
+                  {location || "Not specified."}
+                </div>
+                <div className="d-none d-md-block">|</div>
+                <div className="mx-md-3">
+                  <strong>Portfolio URL: </strong>
+                  <a href={portfolio} target="_blank" rel="noreferrer">
+                    {portfolio || "Not specified."}
+                  </a>
+                </div>
+              </div>
+              <div className="my-3 my-md-5 px-3 text-muted">{bio}</div>
+              <div className="my-5">
+                <h3>
+                  <strong>Collections.</strong>
+                </h3>
+                {!loading && !_isEmpty(userCollections) && (
+                  <div className="my-2">
+                    <Link href={`/user/collections/${username}`}>
+                      <a>See all collections.</a>
+                    </Link>
+                  </div>
+                )}
+                {loading && (
+                  <div className="text-center w-100">
+                    <h4>
+                      Fetching <strong>Collections</strong>...
+                    </h4>
+                  </div>
+                )}
+                {!loading && !_isEmpty(userCollections) && (
+                  <div className="row">
+                    {userCollections.map((collection, i) => (
+                      <CollectionCards collection={collection} key={i} />
+                    ))}
+                  </div>
+                )}
+                {!loading && _isEmpty(userCollections) && (
+                  <div className="text-center my-4">
+                    <h4>
+                      User has no <strong>Collections</strong>...
+                    </h4>
+                  </div>
+                )}
+              </div>
+              <div className="my-5">
+                <h3>
+                  <strong>Photos.</strong>
+                </h3>
+                {!loading && !_isEmpty(userPhotos) && (
+                  <div className="my-2">
+                    <Link href="/">
+                      <a>See all photos.</a>
+                    </Link>
+                  </div>
+                )}
+                <div className="row user-page__card-columns">
+                  {/* {loading && (
                   <div className="text-center w-100">
                     <h4>
                       Fetching <strong>Photos</strong>...
                     </h4>
                   </div>
                 )} */}
-                {!loading &&
-                  !_isEmpty(userPhotos) &&
-                  userPhotos.map((photo, i) => {
-                    return (
-                      <div className="col-sm-1 col-md-4">
-                        <CardComponent
-                          photo={photo}
-                          toggleLightBox={() => toggleLightBox(i)}
-                          key={i}
-                        />
-                      </div>
-                    );
-                  })}
-                {!loading && _isEmpty(userPhotos) && (
-                  <div className="text-center w-100">
-                    <h4>
-                      User has no <strong>Photos</strong>...
-                    </h4>
-                  </div>
-                )}
+                  {!loading &&
+                    !_isEmpty(userPhotos) &&
+                    userPhotos.map((photo, i) => {
+                      return (
+                        <div className="col-sm-1 col-md-4">
+                          <CardComponent
+                            photo={photo}
+                            toggleLightBox={() => toggleLightBox(i)}
+                            key={i}
+                          />
+                        </div>
+                      );
+                    })}
+                  {!loading && _isEmpty(userPhotos) && (
+                    <div className="text-center w-100">
+                      <h4>
+                        User has no <strong>Photos</strong>...
+                      </h4>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
